@@ -1,0 +1,37 @@
+.Keyset {
+  display: grid;
+  grid-row: 1fr 1fr;
+  box-sizing: border-box;
+  position: relative;
+  margin: 2%; }
+
+.keyset_first {
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+  background-color: #000066;
+  border-radius: 6px;
+  margin-bottom: 1px; }
+
+.keyset_first_1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr; }
+
+.keyset_first_2 {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr; }
+
+.keyset_second {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  background-color: #0000ff;
+  border-radius: 6px; }
+  .keyset_second button {
+    width: 40px; }
+
+.keyset_second_1 {
+  margin-left: 10%; }
+
+.keyset_second_2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-left: 10%; }
