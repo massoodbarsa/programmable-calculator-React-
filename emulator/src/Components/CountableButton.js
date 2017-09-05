@@ -10,17 +10,18 @@ export default class CountableButtons extends React.Component{
 
   static propTypes = {
     label: PropTypes.string,
+    // value: PropTypes.string,
   }
 
 
 
   render(){
 
-    const {label} = this.props
+    const {value,label} = this.props
 
     return(
       <div className='Buttons'>
-        <button className='Button' onClick={()=> MainOperations.Countable(label)} >
+        <button className='Button' onClick={()=> MainOperations.Countable(value)} >
           {label}
         </button>
       </div>

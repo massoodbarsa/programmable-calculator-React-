@@ -17,13 +17,20 @@ export function Countable(Digit){
 export function Operational(operator){
 
   const { value } = {...store.state}
-  //console.log(value.x);
-  if(operator==="CLR"){
-    store.setState({
-    value:''
-  })
-  return
-}
+  const newValue = []
 
+  if (operator === "CLR") {
+    value.x = ''
+    store.setState({
+      value
+    })
+    // return
+  }
+
+ if(value.x!==''){
+  newValue.push(value.x)
+ }
+
+ 
 
 }
