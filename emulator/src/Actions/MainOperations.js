@@ -73,6 +73,12 @@ export function Operational(operator) {
 
     if (newValue.length >= 1) {
       switch (operator) {
+
+
+        case 'SQRT':
+          newValue[newValue.length - 1] = Math.sqrt(newValue[newValue.length - 1])
+          break;
+
         case 'COS':
           newValue[newValue.length - 1] = Math.cos(newValue[newValue.length - 1])
           break;

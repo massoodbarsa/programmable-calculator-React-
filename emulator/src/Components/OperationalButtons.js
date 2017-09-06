@@ -10,17 +10,18 @@ export default class OperationalButtons extends React.Component{
 
   static propTypes = {
     label: PropTypes.string,
+    value:PropTypes.string
   }
 
 
 
   render(){
 
-    const {label} = this.props
+    const {label,value} = this.props
 
     return(
       <div className='Buttons'>
-        <button className='Button' onClick={()=> MainOperations.Operational(label)} >
+        <button className='Button' onClick={()=> MainOperations.Operational(value)} >
           {label}
         </button>
       </div>

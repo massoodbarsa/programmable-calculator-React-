@@ -18,12 +18,12 @@ export default class Keyset extends React.Component{
                   />
                   <OperationalButtons
                      label='LOG'
-                     value=''
+                     value='LOG'
                   />
 
                    <OperationalButtons
                      label='LN'
-                     value=''
+                     value='LN'
                     />
 
                   <OperationalButtons
@@ -32,38 +32,38 @@ export default class Keyset extends React.Component{
                     />
 
                   <OperationalButtons
-                     label='CLR'
-                     value=''
+                     label='Clear'
+                     value='CLR'
                   />
 
                   <OperationalButtons
                      label='√x'
-                     value=''
+                     value='SQRT'
                   />
 
                   <OperationalButtons
                      label='ARC'
-                     value=''
+                     value='ARC'
                   />
 
                   <OperationalButtons
                      label='SIN'
-                     value=''
+                     value='SIN'
                   />
 
                   <OperationalButtons
                      label='COS'
-                     value=''
+                     value='COS'
                   />
 
                   <OperationalButtons
                      label='TAN'
-                     value=''
+                     value='TAN'
                   />
 
                   <OperationalButtons
                      label='1/x'
-                     value=''
+                     value='1/x'
                   />
 
                   <OperationalButtons
