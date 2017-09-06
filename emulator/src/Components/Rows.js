@@ -7,28 +7,23 @@ import '../Css/Rows.css'
 export default class Buttons extends React.Component{
 
 
-  static propTypes = {
-    label: PropTypes.string,
-    value:PropTypes.string,
-  }
+  // static propTypes = {
+  //   row: PropTypes.number,
+  //   value:PropTypes.number,
+  // }
 
 
 
   render(){
 
-    const {value,label} = this.props
+    const {value,row} = this.props
 
     return(
       <div className='Rows'>
-        <label className='Label' value={value}>
-          {label}
+        <label className='Row' value={value}>
+          {row}
         </label>
       </div>
     )
-  }
-
-  handlButtonlick(e){
-     this.props.onClick(e.target.value)
-
   }
 }

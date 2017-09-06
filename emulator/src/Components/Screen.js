@@ -16,26 +16,26 @@ class Screen extends Component {
     this.subscription.remove();
   }
   render() {
-    const {value} = {...store.state}
+    const {value,show} = {...store.state}
 
 
     return (
       <div className="Screen">
           <Rows
           //  value={value}
-            label={value.t}
+            row={value[value.length-3]}
           />
           <Rows
             //value={value}
-            label={value.z}
+            row={value[value.length-2]}
           />
           <Rows
           //  value={value}
-            label={value.y}
+            row={value[value.length-1]}
           />
           <Rows
         //    value={value}
-            label= {value.x}
+            row= {show}
           />
       </div>
     );
