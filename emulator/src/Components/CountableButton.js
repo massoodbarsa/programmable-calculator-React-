@@ -10,7 +10,7 @@ export default class CountableButtons extends React.Component{
 
   static propTypes = {
     label: PropTypes.string,
-    // value: PropTypes.string,
+    value: PropTypes.string,
   }
 
 

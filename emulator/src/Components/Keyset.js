@@ -13,7 +13,7 @@ export default class Keyset extends React.Component{
         <div className ='keyset_first'>
                <div className='keyset_first_1'>
                   <OperationalButtons
-                     label='Xy'
+                     label='Xʸ'
                      value=''
                   />
                   <OperationalButtons
@@ -27,7 +27,7 @@ export default class Keyset extends React.Component{
                     />
 
                   <OperationalButtons
-                     label='EX'
+                     label='eˣ'
                      value=''
                     />
 
@@ -62,7 +62,7 @@ export default class Keyset extends React.Component{
                   />
 
                   <OperationalButtons
-                     label='1/x'
+                     label='¹/x'
                      value='1/x'
                   />
 
@@ -72,7 +72,7 @@ export default class Keyset extends React.Component{
                   />
 
                   <OperationalButtons
-                     label='R |'
+                     label='R↓'
                      value=''
                   />
 
@@ -114,19 +114,19 @@ export default class Keyset extends React.Component{
               <div className='keyset_second_1'>
                   <OperationalButtons
                      label='-'
-                     value=''
+                     value='-'
                   />
                   <OperationalButtons
                      label='+'
-                     value=''
+                     value='+'
                   />
                    <OperationalButtons
                      label='*'
-                     value=''
+                     value='*'
                     />
                   <OperationalButtons
                      label='/'
-                     value=''
+                     value='/'
                     />
                </div>
                <div className='keyset_second_2'>
@@ -177,7 +177,7 @@ export default class Keyset extends React.Component{
                   />
                   <CountableButtons
                      label='π'
-                     value='π'
+                     value='3.14'
                   />
              </div>
           </div>

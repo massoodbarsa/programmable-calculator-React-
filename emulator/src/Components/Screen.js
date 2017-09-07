@@ -34,8 +34,7 @@ class Screen extends Component {
             row={value[value.length-1]}
           />
           <Rows
-        //    value={value}
-            row= {show}
+              row= {show}
           />
       </div>
     );

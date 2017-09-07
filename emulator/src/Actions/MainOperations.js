@@ -2,16 +2,18 @@ import store from '../store';
 
 
 export function Countable(Digit){
-  //const { newValue} = {...store.state}
 
-  let show=store.state.show
-  show+=Digit.toString()
-
-  store.setState({
-     show
-  })
+let show=store.state.show
+    if (Digit === '.') {
+      store.setState({
+        show: show === '' ? '0' + String(Digit) : show + Digit
+      })
+    } else {
+      store.setState({
+        show: show === '' ? String(Digit) : show + Digit
+      })
+    }
 }
-
 
 
 
@@ -20,8 +22,8 @@ export function Operational(operator) {
   const {value,show,enterMode} = { ...store.state}
   let newValue = [...value]
 
-  if (operator === "CLR") {
 
+  if (operator === "CLR") {
     store.setState({
       value: [],
       show: ''
@@ -32,11 +34,8 @@ export function Operational(operator) {
 
   if (show !== '') {
     newValue.push(Number(show))
-    console.log(newValue);
+  }
 
-
-}
-    // console.log(newValue);
 
   if (newValue.length > 1){
 
@@ -100,7 +99,6 @@ export function Operational(operator) {
       }
 
     }
-    console.log(Math.tan(90))
     store.setState({
       value: newValue,
       show: '',
