@@ -31,11 +31,13 @@
 .keyset_second_1 {
   margin-left: 10%; }
   .keyset_second_1 button {
-    font-size: 22px;
-    font-weight: bold; }
+    font-size: 27px;
+    font-weight: bold;
+    padding: 1px; }
 
 .keyset_second_2 {
   display: grid;
+  box-sizing: border-box;
   grid-template-columns: 1fr 1fr 1fr;
   margin-left: 10%; }
   .keyset_second_2 button {
@@ -48,3 +50,9 @@
 
 .pink button {
   background-color: #ff80bf; }
+
+.keyset_second_2:active, .keyset_second_1 {
+  color: #ffff4d;
+  padding: 0;
+  background-color: inherit;
+  font-size: 1.2em; }

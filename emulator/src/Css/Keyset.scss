@@ -41,19 +41,22 @@
   @extend .green;
 
   button {
-    font-size: 22px;
+    font-size: 27px;
     font-weight: bold;
+    padding: 1px
   }
 }
 
 .keyset_second_2 {
   display: grid;
+  box-sizing: border-box;
   grid-template-columns: 1fr 1fr 1fr;
   margin-left: 10%;
-  button{
-    background-color:#ffffff;
+
+  button {
+    background-color: #ffffff;
     font-weight: bold;
-    font-size: 22px
+    font-size: 22px;
   }
 }
 
@@ -67,4 +70,15 @@
   button {
     background-color: #ff80bf;
   }
+}
+
+.keyset_second_2:active{
+    color: #ffff4d;
+    padding: 0;
+    background-color: inherit;
+    font-size: 1.2em;
+}
+.keyset_second_1{
+  @extend .keyset_second_2:active;
+
 }

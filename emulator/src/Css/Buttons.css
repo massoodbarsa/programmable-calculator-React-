@@ -16,4 +16,6 @@
 
 .Button:active {
   color: #ffff4d;
-  background-color: inherit; }
+  padding: 0;
+  background-color: inherit;
+  font-size: 1.5em; }
