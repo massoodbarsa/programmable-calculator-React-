@@ -14,7 +14,7 @@ export default class Keyset extends React.Component{
                <div className='keyset_first_1'>
                   <OperationalButtons
                      label='Xʸ'
-                     value=''
+                     value='XY'
                   />
                   <OperationalButtons
                      label='LOG'
@@ -28,38 +28,40 @@ export default class Keyset extends React.Component{
 
                   <OperationalButtons
                      label='eˣ'
-                     value=''
+                     value='EXP'
                     />
-
+                <div className='green'>
                   <OperationalButtons
                      label='Clear'
                      value='CLR'
                   />
-
+                 </div>
                   <OperationalButtons
                      label='√x'
                      value='SQRT'
                   />
 
+                 <div className='pink'>
                   <OperationalButtons
                      label='ARC'
                      value='ARC'
-                  />
+                  /> </div>
 
+                 <div className='pink'>
                   <OperationalButtons
                      label='SIN'
                      value='SIN'
-                  />
-
+                  /> </div>
+                  <div className='pink'>
                   <OperationalButtons
                      label='COS'
                      value='COS'
-                  />
-
+                  /></div>
+                  <div className='pink'>
                   <OperationalButtons
                      label='TAN'
                      value='TAN'
-                  />
+                  /></div>
 
                   <OperationalButtons
                      label='¹/x'
@@ -73,7 +75,7 @@ export default class Keyset extends React.Component{
 
                   <OperationalButtons
                      label='R↓'
-                     value=''
+                     value='R'
                   />
 
                   <OperationalButtons
@@ -86,7 +88,7 @@ export default class Keyset extends React.Component{
                      value=''
                   />
                </div>
-               <div className='keyset_first_2'>
+               <div className='keyset_first_2' >
 
                   <OperationalButtons
                      label='ENTER ↑'
@@ -111,7 +113,7 @@ export default class Keyset extends React.Component{
           </div>
 
           <div className ='keyset_second'>
-              <div className='keyset_second_1'>
+              <div className='keyset_second_1' >
                   <OperationalButtons
                      label='-'
                      value='-'
@@ -177,7 +179,7 @@ export default class Keyset extends React.Component{
                   />
                   <CountableButtons
                      label='π'
-                     value='3.14'
+                     value='3.1415'
                   />
              </div>
           </div>

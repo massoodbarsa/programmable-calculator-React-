@@ -30,8 +30,20 @@
 
 .keyset_second_1 {
   margin-left: 10%; }
+  .keyset_second_1 button {
+    font-size: 20px;
+    font-weight: bold; }
 
 .keyset_second_2 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   margin-left: 10%; }
+  .keyset_second_2 button {
+    background-color: #ffffff;
+    font-weight: bold; }
+
+.green button, .keyset_first_2 button, .keyset_second_1 button {
+  background-color: #4dff4d; }
+
+.pink button {
+  background-color: #ff80bf; }

@@ -19,9 +19,8 @@ let show=store.state.show
 
 
 export function Operational(operator) {
-  const {value,show,enterMode} = { ...store.state}
+  const {value,show,enterMode} = store.state
   let newValue = [...value]
-
 
   if (operator === "CLR") {
     store.setState({
@@ -31,10 +30,19 @@ export function Operational(operator) {
     return
   }
 
+  if(operator==='XY'){
+    console.log(show);
+    store.setState({
+      show: 'salam'
+    })
+  }
+
 
   if (show !== '') {
     newValue.push(Number(show))
   }
+
+
 
 
   if (newValue.length > 1){
@@ -44,31 +52,44 @@ export function Operational(operator) {
           newValue[newValue.length - 2] = newValue[newValue.length - 2] + newValue[newValue.length - 1]
           newValue.pop()
           break;
+
         case '-':
           newValue[newValue.length - 2] = newValue[newValue.length - 2] - newValue[newValue.length - 1]
           newValue.pop()
           break;
+
         case '*':
           newValue[newValue.length - 2] = newValue[newValue.length - 2] * newValue[newValue.length - 1]
           newValue.pop()
           break;
+
         case '/':
          if(newValue[newValue.length - 1] !== 0){
              newValue[newValue.length - 2] = newValue[newValue.length - 2] / newValue[newValue.length - 1]
           newValue.pop()
         }
           break;
+
+        case 'XY':
+          newValue[newValue.length - 2] = Math.pow(newValue[newValue.length - 2], newValue[newValue.length - 1]);
+          newValue.pop()
+          break;
+
+        case 'R':
+
+          break;
+
         default:
         break;
 
       }
 
     }
-    store.setState({
-      value: newValue,
-      show: ''
-
-    })
+    // store.setState({
+    //   value: newValue,
+    //   show: ''
+    //
+    // })
 
     if (newValue.length >= 1) {
       switch (operator) {
@@ -86,13 +107,25 @@ export function Operational(operator) {
           newValue[newValue.length - 1] = Math.sin(newValue[newValue.length - 1])
           break;
 
-        case 'LOG':
+        case 'LN':
           newValue[newValue.length - 1] = Math.log(newValue[newValue.length - 1])
           break;
+
         case 'TAN':
           newValue[newValue.length - 1] = Math.tan(newValue[newValue.length - 1])
           break;
 
+        case '1/x':
+          newValue[newValue.length - 1] = 1/newValue[newValue.length - 1]
+          break;
+
+        case 'LOG':
+          newValue[newValue.length - 1] = Math.log(newValue[newValue.length - 1])/Math.LN10
+          break;
+
+        case 'EXP':
+          newValue[newValue.length - 1] = Math.exp(newValue[newValue.length - 1])
+          break;
 
         default:
           break;
