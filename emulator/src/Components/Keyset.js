@@ -97,7 +97,7 @@ export default class Keyset extends React.Component{
 
                   <OperationalButtons
                      label='CHS'
-                     value=''
+                     value='CHS'
                   />
 
                   <OperationalButtons
@@ -107,7 +107,7 @@ export default class Keyset extends React.Component{
 
                   <OperationalButtons
                      label='CLX'
-                     value=''
+                     value='CLX'
                   />
             </div>
           </div>
@@ -179,7 +179,7 @@ export default class Keyset extends React.Component{
                   />
                   <CountableButtons
                      label='π'
-                     value='3.1415'
+                     value='3.14'
                   />
              </div>
           </div>

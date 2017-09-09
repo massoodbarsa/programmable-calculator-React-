@@ -4,6 +4,11 @@ import store from '../store';
 export function Countable(Digit){
 
 let show=store.state.show
+
+    if (Digit==='3.14') {
+      if(show!=='')
+      return
+    }
     if (Digit === '.') {
       store.setState({
         show: show === '' ? '0' + String(Digit) : show + Digit
@@ -30,9 +35,15 @@ export function Operational(operator) {
     return
   }
 
+  if (operator === "CLX") {
+    store.setState({
+      show: ''
+    })
+    return
+  }
+
 
   if(operator==='STO'){
-    console.log(newValue);
     let str=newValue[0]
     store.setState({
       str
@@ -46,8 +57,6 @@ export function Operational(operator) {
       value:newValue
     })
   }
-
-
 
 
   if (show !== '') {
@@ -139,6 +148,10 @@ export function Operational(operator) {
           newValue[newValue.length - 1] = Math.exp(newValue[newValue.length - 1])
           break;
 
+        case 'CHS':
+          newValue[newValue.length - 1] = -(newValue[newValue.length - 1])
+          break;
+
         default:
           break;
       }
@@ -147,7 +160,6 @@ export function Operational(operator) {
     store.setState({
       value: newValue,
       show: '',
-
     })
 
 
