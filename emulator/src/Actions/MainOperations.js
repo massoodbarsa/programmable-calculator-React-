@@ -19,7 +19,7 @@ let show=store.state.show
 
 
 export function Operational(operator) {
-  const {value,show,enterMode} = store.state
+  const {value,show,enterMode,str} = store.state
   let newValue = [...value]
 
   if (operator === "CLR") {
@@ -30,12 +30,24 @@ export function Operational(operator) {
     return
   }
 
-  if(operator==='XY'){
-    console.log(show);
+
+  if(operator==='STO'){
+    console.log(newValue);
+    let str=newValue[0]
     store.setState({
-      show: 'salam'
+      str
     })
   }
+
+
+  if(operator==='RCL'){
+    newValue.push(Number(str))
+    store.setState({
+      value:newValue
+    })
+  }
+
+
 
 
   if (show !== '') {

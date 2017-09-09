@@ -80,12 +80,12 @@ export default class Keyset extends React.Component{
 
                   <OperationalButtons
                      label='STO'
-                     value=''
+                     value='STO'
                   />
 
                   <OperationalButtons
                      label='RCL'
-                     value=''
+                     value='RCL'
                   />
                </div>
                <div className='keyset_first_2' >
