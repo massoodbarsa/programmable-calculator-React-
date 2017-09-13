@@ -2,5 +2,6 @@ export default {
   value: [],
   show: '',
   enterMode:false,
-  str:[]
+  str:[],
+  arc:false
 }
