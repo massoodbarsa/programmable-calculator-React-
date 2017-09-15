@@ -211,7 +211,7 @@ export function Operational(operator) {
               newShow = show.replace(show.charAt(minIndex), '+');
               newstack[newstack.length - 1] = -(newstack[newstack.length - 1])
             }
-            newstack = []
+          newstack.pop()
         }
         else {
            newstack[newstack.length - 1] = -(newstack[newstack.length - 1])
