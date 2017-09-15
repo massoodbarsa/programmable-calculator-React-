@@ -49,6 +49,7 @@ export function Countable(Digit){
 
 
 export function Operational(operator) {
+  // console.log(operator);
   const {stack,show,enterMode,str,arc } = store.state
   let newstack = [...stack]
   let newShow = show
@@ -57,7 +58,7 @@ export function Operational(operator) {
   if (show !== '') {
     newstack.push(Number(show))
     newShow=''
-    //fix it later
+  //fix it later
     if(newstack.length>3){
       newstack.pop(newstack[3])
     }
@@ -66,6 +67,10 @@ export function Operational(operator) {
       newstack[0]=0
     }
   }
+
+   if (newstack[0]===NaN) {
+     newstack[0]=Error('This is wrong')
+   }
 
   // if(show.includes('e')){
   //   newShow=''
@@ -283,8 +288,22 @@ export function Operational(operator) {
           newShow = show.replace(show.charAt(minIndex), '+');
         }
 
+         newstack=[]
         newstack[newstack.length - 1] = -(newstack[newstack.length - 1])
           break;
+
+
+        case 'ENTER':
+          newstack[0]=Number(newstack[0])
+          console.log(show.includes('e'));
+           if(show.includes('e')){
+             newShow=newstack[0].toString()
+           }
+           //newShow=''
+          break;
+
+
+
 
 
         case 'ARC':
