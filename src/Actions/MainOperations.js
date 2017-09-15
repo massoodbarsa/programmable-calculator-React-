@@ -77,7 +77,7 @@ export function Operational(operator) {
     let changable = 0
 //to prevent add an exponent to the
 //priviuos van by clicking on eex again
-    if (show.includes("e")) {
+    if (show.includes("e")||show.length>=3) {
       return
     }
 
@@ -192,7 +192,7 @@ export function Operational(operator) {
           break;
 
         case 'CLX':
-          //newstack.pop()
+          newstack.pop()
           newShow = ''
           break;
 
