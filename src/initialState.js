@@ -1,5 +1,5 @@
 export default {
-  value: [],
+  stack: [],
   show: '',
   enterMode:false,
   str:[],

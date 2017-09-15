@@ -49,21 +49,21 @@ export function Countable(Digit){
 
 
 export function Operational(operator) {
-  const {value,show,enterMode,str,arc } = store.state
-  let newValue = [...value]
+  const {stack,show,enterMode,str,arc } = store.state
+  let newstack = [...stack]
   let newShow = show
   let newStr=str
 
   if (show !== '') {
-    newValue.push(Number(show))
+    newstack.push(Number(show))
     newShow=''
-    //fix it later 
-    if(newValue.length>3){
-      newValue.pop(newValue[3])
+    //fix it later
+    if(newstack.length>3){
+      newstack.pop(newstack[3])
     }
 
     if (show==='.') {
-      newValue[0]=0
+      newstack[0]=0
     }
   }
 
@@ -72,14 +72,14 @@ export function Operational(operator) {
   //
   //
   //    // store.setState({
-  //   //   show: newValue
+  //   //   show: newstack
   //   // })
   // }
 
 
   // if (operator === "CLR") {
   //   store.setState({
-  //     value: [],
+  //     stack: [],
   //     show: ''
   //   })
   //   return
@@ -122,29 +122,29 @@ export function Operational(operator) {
 
   ////store de number
   // if (operator === 'STO') {
-  //    newStr = newValue[0]
+  //    newStr = newstack[0]
   // }
 
 ////recall the stored number
   // if (operator === 'RCL') {
-  //   newValue.push(Number(str))
+  //   newstack.push(Number(str))
   //
   // }
 
   // if (operator === 'R') {
-  //   const [x,y,z] = store.state.value
-  //   newValue = [z,x,y]
+  //   const [x,y,z] = store.state.stack
+  //   newstack = [z,x,y]
   //   store.setState({
-  //     value: newValue
+  //     stack: newstack
   //   })
   // }
 
 
   // if (operator === 'xy') {
-  //   const [x,y,...rest] = store.state.value
-  //   newValue = [y,x,...rest]
+  //   const [x,y,...rest] = store.state.stack
+  //   newstack = [y,x,...rest]
   //   store.setState({
-  //     value: newValue
+  //     stack: newstack
   //   })
   // }
 
@@ -156,56 +156,56 @@ export function Operational(operator) {
   //   if (show.includes('+')) {
   //     newShow = show.replace(show.charAt(plusIndex), '-');
   //     // store.setState({
-  //     //   value: '',
+  //     //   stack: '',
   //     //   show: newShow
   //     // })
   //
   //   } else if (show.includes('-')) {
   //     newShow = show.replace(show.charAt(minIndex), '+');
   //     // store.setState({
-  //     //   value: '',
+  //     //   stack: '',
   //     //   show: newShow
   //     // })
   //
   //   }
-  //   newValue[newValue.length - 1] = -(newValue[newValue.length - 1])
+  //   newstack[newstack.length - 1] = -(newstack[newstack.length - 1])
   //
   // }
 
 
-  if (newValue.length > 1) {
+  if (newstack.length > 1) {
 
     switch (operator) {
       case '+':
-        newValue[newValue.length - 2] = newValue[newValue.length - 2] + newValue[newValue.length - 1]
-        newValue.pop()
+        newstack[newstack.length - 2] = newstack[newstack.length - 2] + newstack[newstack.length - 1]
+        newstack.pop()
         break;
 
       case '-':
-        newValue[newValue.length - 2] = newValue[newValue.length - 2] - newValue[newValue.length - 1]
-        newValue.pop()
+        newstack[newstack.length - 2] = newstack[newstack.length - 2] - newstack[newstack.length - 1]
+        newstack.pop()
         break;
 
       case '*':
-        newValue[newValue.length - 2] = newValue[newValue.length - 2] * newValue[newValue.length - 1]
-        newValue.pop()
+        newstack[newstack.length - 2] = newstack[newstack.length - 2] * newstack[newstack.length - 1]
+        newstack.pop()
         break;
 
       case '/':
-        if (newValue[newValue.length - 1] !== 0) {
-          newValue[newValue.length - 2] = newValue[newValue.length - 2] / newValue[newValue.length - 1]
-          newValue.pop()
+        if (newstack[newstack.length - 1] !== 0) {
+          newstack[newstack.length - 2] = newstack[newstack.length - 2] / newstack[newstack.length - 1]
+          newstack.pop()
         }
         break;
 
       case 'XY':
-        newValue[newValue.length - 2] = Math.pow(newValue[newValue.length - 2], newValue[newValue.length - 1]);
-        newValue.pop()
+        newstack[newstack.length - 2] = Math.pow(newstack[newstack.length - 2], newstack[newstack.length - 1]);
+        newstack.pop()
         break;
 
       case'R':
-        const [a,b,c] = store.state.value
-        newValue = [c,a,b]
+        const [a,b,c] = store.state.stack
+        newstack = [c,a,b]
         break;
 
       default:
@@ -213,63 +213,63 @@ export function Operational(operator) {
     }
   }
 
-  if (newValue.length >= 1) {
+  if (newstack.length >= 1) {
     if (arc === false) {
       switch (operator) {
 
 
         case 'SQRT':
-          newValue[newValue.length - 1] = Math.sqrt(newValue[newValue.length - 1])
+          newstack[newstack.length - 1] = Math.sqrt(newstack[newstack.length - 1])
           break;
 
         case 'COS':
-          newValue[newValue.length - 1] = Math.cos(radians(newValue[newValue.length - 1]))
+          newstack[newstack.length - 1] = Math.cos(radians(newstack[newstack.length - 1]))
           break;
 
         case 'SIN':
-          newValue[newValue.length - 1] = Math.sin(radians(newValue[newValue.length - 1]))
+          newstack[newstack.length - 1] = Math.sin(radians(newstack[newstack.length - 1]))
           break;
 
         case 'LN':
-          newValue[newValue.length - 1] = Math.log(newValue[newValue.length - 1])
+          newstack[newstack.length - 1] = Math.log(newstack[newstack.length - 1])
           break;
 
         case 'TAN':
-          newValue[newValue.length - 1] = Math.tan(radians(newValue[newValue.length - 1]))
+          newstack[newstack.length - 1] = Math.tan(radians(newstack[newstack.length - 1]))
           break;
 
         case '1/x':
-          newValue[newValue.length - 1] = 1 / newValue[newValue.length - 1]
+          newstack[newstack.length - 1] = 1 / newstack[newstack.length - 1]
           break;
 
         case 'LOG':
-          newValue[newValue.length - 1] = Math.log(newValue[newValue.length - 1]) / Math.LN10
+          newstack[newstack.length - 1] = Math.log(newstack[newstack.length - 1]) / Math.LN10
           break;
 
         case 'EXP':
-          newValue[newValue.length - 1] = Math.exp(newValue[newValue.length - 1])
+          newstack[newstack.length - 1] = Math.exp(newstack[newstack.length - 1])
           break;
 
         case'xy':
-          const [x,y,...rest] = store.state.value
-          newValue = [y,x,...rest]
+          const [x,y,...rest] = store.state.stack
+          newstack = [y,x,...rest]
           break;
 
         case'STO':
-          newStr = newValue[0]
+          newStr = newstack[0]
           break;
 
         case 'RCL':
-          newValue.push(Number(newStr))
+          newstack.push(Number(newStr))
           break;
 
         case'CLX':
-          newValue.pop()
+          newstack.pop()
           newShow=''
           break;
 
         case 'CLR':
-          newValue = ''
+          newstack = ''
           newShow = ''
           break;
 
@@ -283,7 +283,7 @@ export function Operational(operator) {
           newShow = show.replace(show.charAt(minIndex), '+');
         }
 
-        newValue[newValue.length - 1] = -(newValue[newValue.length - 1])
+        newstack[newstack.length - 1] = -(newstack[newstack.length - 1])
           break;
 
 
@@ -305,16 +305,16 @@ export function Operational(operator) {
       switch (operator) {
 
         case 'COS':
-          newValue[newValue.length - 1] = degrees(Math.acos(newValue[newValue.length - 1]))
+          newstack[newstack.length - 1] = degrees(Math.acos(newstack[newstack.length - 1]))
           newShow=''
           break;
 
         case 'SIN':
-          newValue[newValue.length - 1] = degrees(Math.asin(newValue[newValue.length - 1]))
+          newstack[newstack.length - 1] = degrees(Math.asin(newstack[newstack.length - 1]))
           break;
 
         case 'TAN':
-          newValue[newValue.length - 1] = degrees(Math.atan(newValue[newValue.length - 1]))
+          newstack[newstack.length - 1] = degrees(Math.atan(newstack[newstack.length - 1]))
           break;
 
         case 'ARC':
@@ -336,7 +336,7 @@ export function Operational(operator) {
 
 
   store.setState({
-    value: newValue,
+    stack: newstack,
     show: newShow,
     str:newStr
   })
