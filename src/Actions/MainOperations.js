@@ -57,125 +57,49 @@ export function Operational(operator) {
 
   if (show !== '') {
     newstack.push(Number(show))
-    newShow=''
-  //fix it later
-    if(newstack.length>3){
+    newShow = ''
+    //fix it later
+    if (newstack.length > 3) {
       newstack.pop(newstack[3])
     }
 
-    if (show==='.') {
-      newstack[0]=0
+    if (show === '.') {
+      newstack[0] = 0
     }
   }
 
-   if (newstack[0]===NaN) {
-     newstack[0]=Error('This is wrong')
-   }
-
-  // if(show.includes('e')){
-  //   newShow=''
-  //
-  //
-  //    // store.setState({
-  //   //   show: newstack
-  //   // })
-  // }
-
-
-  // if (operator === "CLR") {
-  //   store.setState({
-  //     stack: [],
-  //     show: ''
-  //   })
-  //   return
-  // }
-//clean the show stack
-  // if (operator === "CLX") {
-  //   newShow=''
-  //   store.setState({
-  //     show: ''
-  //   })
-  //   return
-  // }
-
+  if (newstack[0] === NaN) {
+    newstack[0] = Error('This is wrong')
+  }
 
   ///////EEX
+
   if (operator === "EEX") {
     let changable = 0
-
+//to prevent add an exponent to the
+//priviuos van by clicking on eex again
     if (show.includes("e")) {
       return
     }
 
-    if (show === '') {
+    if (show === ''){
+      //newShow=1 + 'e' + '+' + changable
       store.setState({
         show: 1 + 'e' + '+' + changable
       })
     } else {
+      //newShow=newShow + 'e' + '+' + changable
       store.setState({
         show: show + 'e' + '+' + changable
       })
     }
 
-    if(show==='.'){
+    if (show === '.') {
       newShow = ''
-
     }
-
     return
   }
 
-  ////store de number
-  // if (operator === 'STO') {
-  //    newStr = newstack[0]
-  // }
-
-////recall the stored number
-  // if (operator === 'RCL') {
-  //   newstack.push(Number(str))
-  //
-  // }
-
-  // if (operator === 'R') {
-  //   const [x,y,z] = store.state.stack
-  //   newstack = [z,x,y]
-  //   store.setState({
-  //     stack: newstack
-  //   })
-  // }
-
-
-  // if (operator === 'xy') {
-  //   const [x,y,...rest] = store.state.stack
-  //   newstack = [y,x,...rest]
-  //   store.setState({
-  //     stack: newstack
-  //   })
-  // }
-
-  // if (operator === 'CHS') {
-  //
-  //   let plusIndex = show.indexOf('+')
-  //   let minIndex = show.indexOf('-')
-  //
-  //   if (show.includes('+')) {
-  //     newShow = show.replace(show.charAt(plusIndex), '-');
-  //     // store.setState({
-  //     //   stack: '',
-  //     //   show: newShow
-  //     // })
-  //
-  //   } else if (show.includes('-')) {
-  //     newShow = show.replace(show.charAt(minIndex), '+');
-  //     // store.setState({
-  //     //   stack: '',
-  //     //   show: newShow
-  //     // })
-  //
-  //   }
-  //   newstack[newstack.length - 1] = -(newstack[newstack.length - 1])
-  //
-  // }
 
 
   if (newstack.length > 1) {
@@ -208,9 +132,9 @@ export function Operational(operator) {
         newstack.pop()
         break;
 
-      case'R':
-        const [a,b,c] = store.state.stack
-        newstack = [c,a,b]
+      case 'R':
+        const [a, b, c] = store.state.stack
+        newstack = [c, a, b]
         break;
 
       default:
@@ -255,12 +179,12 @@ export function Operational(operator) {
           newstack[newstack.length - 1] = Math.exp(newstack[newstack.length - 1])
           break;
 
-        case'xy':
-          const [x,y,...rest] = store.state.stack
-          newstack = [y,x,...rest]
+        case 'xy':
+          const [x, y, ...rest] = store.state.stack
+          newstack = [y, x, ...rest]
           break;
 
-        case'STO':
+        case 'STO':
           newStr = newstack[0]
           break;
 
@@ -268,9 +192,9 @@ export function Operational(operator) {
           newstack.push(Number(newStr))
           break;
 
-        case'CLX':
+        case 'CLX':
           newstack.pop()
-          newShow=''
+          newShow = ''
           break;
 
         case 'CLR':
@@ -279,27 +203,26 @@ export function Operational(operator) {
           break;
 
         case 'CHS':
-        let plusIndex = show.indexOf('+')
-        let minIndex = show.indexOf('-')
+          let plusIndex = show.indexOf('+')
+          let minIndex = show.indexOf('-')
 
-        if (show.includes('+')) {
-          newShow = show.replace(show.charAt(plusIndex), '-');
-        } else if (show.includes('-')) {
-          newShow = show.replace(show.charAt(minIndex), '+');
-        }
+          if (show.includes('+')) {
+            newShow = show.replace(show.charAt(plusIndex), '-');
+          } else if (show.includes('-')) {
+            newShow = show.replace(show.charAt(minIndex), '+');
+          }
 
-         newstack=[]
-        newstack[newstack.length - 1] = -(newstack[newstack.length - 1])
+          newstack = []
+          newstack[newstack.length - 1] = -(newstack[newstack.length - 1])
           break;
 
 
         case 'ENTER':
-          newstack[0]=Number(newstack[0])
+          newstack[0] = Number(newstack[0])
           console.log(show.includes('e'));
-           if(show.includes('e')){
-             newShow=newstack[0].toString()
-           }
-           //newShow=''
+          if (show.includes('e')) {
+            newShow = newstack[0].toString()
+          }
           break;
 
 
@@ -325,7 +248,7 @@ export function Operational(operator) {
 
         case 'COS':
           newstack[newstack.length - 1] = degrees(Math.acos(newstack[newstack.length - 1]))
-          newShow=''
+          newShow = ''
           break;
 
         case 'SIN':
@@ -357,7 +280,7 @@ export function Operational(operator) {
   store.setState({
     stack: newstack,
     show: newShow,
-    str:newStr
+    str: newStr
   })
 
-}
+  }
