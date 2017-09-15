@@ -7,8 +7,8 @@ import radians from 'degrees-radians';
 
 export function Countable(Digit){
 
-  const {show} = store.state
-  let newShow = show
+    let show=store.state.show
+
 
     if (Digit==='3.141592653589793') {
       if(show!=='')
@@ -16,33 +16,37 @@ export function Countable(Digit){
     }
 
 
-    if (Digit === '.') {
+    if (Digit === '.'){
       if (show.includes('.')) {
         return
       }
-      newShow = show === '' ? '0' + String(Digit) : show + Digit
+      store.setState({
+        show: show === '' ? '0' + String(Digit) : show + Digit
+      })
     }
 
 
     if (show.includes('e')) {
 
     let plusIndex = show.indexOf('+')
-    let minIndex = show.indexOf('-')
+    let minIndex  = show.indexOf('-')
 
     if (show.includes('+')) {
-      newShow = show.replace(show.charAt(plusIndex + 1), '') + Digit;
+      show = show.replace(show.charAt(plusIndex + 1), '');
     } else if (show.includes('-')) {
-      newShow = show.replace(show.charAt(minIndex + 1), '') + Digit;
+      show = show.replace(show.charAt(minIndex + 1), '');
     }
 
-  } else {
-    newShow = show === '' ? String(Digit) : show + Digit
-
-  }
-
-   store.setState({
-    show:newShow
+    store.setState({
+      show: show + Digit
     })
+
+  } else {
+
+    store.setState({
+      show: show === '' ? String(Digit) : show + Digit
+    })
+  }
 }
 
 
@@ -52,50 +56,44 @@ export function Operational(operator) {
   const {value,show,enterMode,str,arc } = store.state
   let newValue = [...value]
   let newShow = show
-  let newStr=str
 
   if (show !== '') {
     newValue.push(Number(show))
-    newShow=''
-    //fix it later 
-    if(newValue.length>3){
-      newValue.pop(newValue[3])
-    }
 
     if (show==='.') {
       newValue[0]=0
     }
   }
 
-  // if(show.includes('e')){
-  //   newShow=''
-  //
-  //
-  //    // store.setState({
-  //   //   show: newValue
-  //   // })
-  // }
+
+  if(show.includes('e')){
+
+    console.log(newValue);
+    store.setState({
+      show: newValue
+    })
+  }
 
 
-  // if (operator === "CLR") {
-  //   store.setState({
-  //     value: [],
-  //     show: ''
-  //   })
-  //   return
-  // }
+  if (operator === "CLR") {
+    store.setState({
+      value: [],
+      show: ''
+    })
+    return
+  }
 //clean the show stack
-  // if (operator === "CLX") {
-  //   newShow=''
-  //   store.setState({
-  //     show: ''
-  //   })
-  //   return
-  // }
+  if (operator === "CLX") {
+    store.setState({
+      show: ''
+    })
+    return
+  }
 
 
   ///////EEX
   if (operator === "EEX") {
+
     let changable = 0
 
     if (show.includes("e")) {
@@ -111,66 +109,49 @@ export function Operational(operator) {
         show: show + 'e' + '+' + changable
       })
     }
-
     if(show==='.'){
-      newShow = ''
-
+      store.setState({
+        show:''
+      })
     }
-
+    if (operator === 'ENTER') {
+      console.log('adede');
+    }
     return
   }
 
   ////store de number
-  // if (operator === 'STO') {
-  //    newStr = newValue[0]
-  // }
+  if (operator === 'STO') {
+    let str = newValue[0]
+    store.setState({
+      str
+    })
+  }
 
 ////recall the stored number
-  // if (operator === 'RCL') {
-  //   newValue.push(Number(str))
-  //
-  // }
+  if (operator === 'RCL') {
+    newValue.push(Number(str))
+    store.setState({
+      value: newValue
+    })
+  }
 
-  // if (operator === 'R') {
-  //   const [x,y,z] = store.state.value
-  //   newValue = [z,x,y]
-  //   store.setState({
-  //     value: newValue
-  //   })
-  // }
+  if (operator === 'R') {
+    const [x,y,z] = store.state.value
+    newValue = [z,x,y]
+    store.setState({
+      value: newValue
+    })
+  }
 
 
-  // if (operator === 'xy') {
-  //   const [x,y,...rest] = store.state.value
-  //   newValue = [y,x,...rest]
-  //   store.setState({
-  //     value: newValue
-  //   })
-  // }
-
-  // if (operator === 'CHS') {
-  //
-  //   let plusIndex = show.indexOf('+')
-  //   let minIndex = show.indexOf('-')
-  //
-  //   if (show.includes('+')) {
-  //     newShow = show.replace(show.charAt(plusIndex), '-');
-  //     // store.setState({
-  //     //   value: '',
-  //     //   show: newShow
-  //     // })
-  //
-  //   } else if (show.includes('-')) {
-  //     newShow = show.replace(show.charAt(minIndex), '+');
-  //     // store.setState({
-  //     //   value: '',
-  //     //   show: newShow
-  //     // })
-  //
-  //   }
-  //   newValue[newValue.length - 1] = -(newValue[newValue.length - 1])
-  //
-  // }
+  if (operator === 'xy') {
+    const [x,y,...rest] = store.state.value
+    newValue = [y,x,...rest]
+    store.setState({
+      value: newValue
+    })
+  }
 
 
   if (newValue.length > 1) {
@@ -201,11 +182,6 @@ export function Operational(operator) {
       case 'XY':
         newValue[newValue.length - 2] = Math.pow(newValue[newValue.length - 2], newValue[newValue.length - 1]);
         newValue.pop()
-        break;
-
-      case'R':
-        const [a,b,c] = store.state.value
-        newValue = [c,a,b]
         break;
 
       default:
@@ -250,43 +226,6 @@ export function Operational(operator) {
           newValue[newValue.length - 1] = Math.exp(newValue[newValue.length - 1])
           break;
 
-        case'xy':
-          const [x,y,...rest] = store.state.value
-          newValue = [y,x,...rest]
-          break;
-
-        case'STO':
-          newStr = newValue[0]
-          break;
-
-        case 'RCL':
-          newValue.push(Number(newStr))
-          break;
-
-        case'CLX':
-          newValue.pop()
-          newShow=''
-          break;
-
-        case 'CLR':
-          newValue = ''
-          newShow = ''
-          break;
-
-        case 'CHS':
-        let plusIndex = show.indexOf('+')
-        let minIndex = show.indexOf('-')
-
-        if (show.includes('+')) {
-          newShow = show.replace(show.charAt(plusIndex), '-');
-        } else if (show.includes('-')) {
-          newShow = show.replace(show.charAt(minIndex), '+');
-        }
-
-        newValue[newValue.length - 1] = -(newValue[newValue.length - 1])
-          break;
-
-
         case 'ARC':
           let arc = true
           store.setState({
@@ -306,7 +245,7 @@ export function Operational(operator) {
 
         case 'COS':
           newValue[newValue.length - 1] = degrees(Math.acos(newValue[newValue.length - 1]))
-          newShow=''
+          console.log('arc is cos');
           break;
 
         case 'SIN':
@@ -333,12 +272,36 @@ export function Operational(operator) {
     }
 
   }
-
-
   store.setState({
     value: newValue,
-    show: newShow,
-    str:newStr
+    show: '',
   })
+
+
+  if (operator === 'CHS') {
+
+    let plusIndex = show.indexOf('+')
+    let minIndex = show.indexOf('-')
+
+    if (show.includes('+')) {
+      newShow = show.replace(show.charAt(plusIndex), '-');
+      store.setState({
+        value: '',
+        show: newShow
+      })
+
+    } else if (show.includes('-')) {
+      newShow = show.replace(show.charAt(minIndex), '+');
+      store.setState({
+        value: '',
+        show: newShow
+      })
+
+    }
+    newValue[newValue.length - 1] = -(newValue[newValue.length - 1])
+
+  }
+
+
 
 }

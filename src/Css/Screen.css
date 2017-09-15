@@ -3,5 +3,11 @@
   margin: 5px;
   border-radius: 5px; }
 
-.show_row {
-  background-color: red; }
+.no-arc, .arc {
+  padding: 3px;
+  margin: 4px 10px;
+  width: 30px;
+  color: #4d0026; }
+
+.arc {
+  color: #ffff00; }

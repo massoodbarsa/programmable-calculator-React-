@@ -16,11 +16,17 @@ class Screen extends Component {
     this.subscription.remove();
   }
   render() {
-    const {value,show} = {...store.state}
-
+    const {value,show,arc} = {...store.state}
+    let clas='no-arc'
+    
+    if(arc){
+       clas='arc'
+    }
 
     return (
       <div className="Screen">
+
+           <h3 className={`${clas}`} >Arc</h3>
           <Rows
           //  value={value}
             row={value[value.length-3]}
