@@ -192,6 +192,9 @@ export function Operational(operator) {
           break;
 
         case 'CLX':
+          if (newstack.length>=1&&show==='') {
+            return
+          }
           newstack.pop()
           newShow = ''
           break;
