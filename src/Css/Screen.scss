@@ -1,9 +1,17 @@
-.Screen{
-  border:1px solid #e6e6ff;
+.Screen {
+  border: 1px solid #e6e6ff;
   margin: 5px;
   border-radius: 5px;
-
 }
-.show_row{
-  background-color: red
+
+.no-arc {
+  padding: 3px;
+  margin: 4px 10px;
+  width: 30px;
+  color: #4d0026;
+}
+
+.arc {
+  @extend .no-arc;
+  color: #ffff00;
 }

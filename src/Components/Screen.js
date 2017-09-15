@@ -16,22 +16,28 @@ class Screen extends Component {
     this.subscription.remove();
   }
   render() {
-    const {value,show} = {...store.state}
+    const {stack,show,arc} = {...store.state}
+    let clas='no-arc'
 
+    if(arc){
+       clas='arc'
+    }
 
     return (
       <div className="Screen">
+
+           <h3 className={`${clas}`} >Arc</h3>
           <Rows
-          //  value={value}
-            row={value[value.length-3]}
+          //  stack={value}
+            row={stack[stack.length-3]}
           />
           <Rows
-            //value={value}
-            row={value[value.length-2]}
+            //stack={stack}
+            row={stack[stack.length-2]}
           />
           <Rows
-          //  value={value}
-            row={value[value.length-1]}
+          //  stack={stack}
+            row={stack[stack.length-1]}
           />
           <Rows
               row= {show}

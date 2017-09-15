@@ -21,7 +21,8 @@ export default class CountableButtons extends React.Component{
 
     return(
       <div className='Buttons'>
-        <button className='Button' onClick={()=> MainOperations.Countable(value)} >
+        <button className='Button'
+        onClick={()=> MainOperations.Countable(value)} >
           {label}
         </button>
       </div>

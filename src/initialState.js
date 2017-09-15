@@ -1,6 +1,7 @@
 export default {
-  value: [],
+  stack: [],
   show: '',
   enterMode:false,
-  str:[]
+  str:[],
+  arc:false
 }

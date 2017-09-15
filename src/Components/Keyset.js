@@ -102,7 +102,7 @@ export default class Keyset extends React.Component{
 
                   <OperationalButtons
                      label='EEX'
-                     value=''
+                     value='EEX'
                   />
 
                   <OperationalButtons
@@ -183,7 +183,7 @@ export default class Keyset extends React.Component{
 
                   <CountableButtons
                      label='π'
-                     value='3.14'
+                     value='3.141592653589793'
                   />
              </div>
           </div>
