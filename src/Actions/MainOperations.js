@@ -56,20 +56,19 @@ export function Operational(operator) {
   let newStr=str
 
   if (show !== '') {
-    newstack.push(Number(show))
+//any click add the show to the stack
+    newstack.push(show)
     newShow = ''
-    //fix it later
+//fix it later
+//do not allow the length of stack exceeds 3
     if (newstack.length > 3) {
       newstack.pop(newstack[3])
     }
 
     if (show === '.') {
+//any click do not allows '.' in stack
       newstack[0] = 0
     }
-  }
-
-  if (newstack[0] === NaN) {
-    newstack[0] = Error('This is wrong')
   }
 
   ///////EEX
@@ -152,11 +151,11 @@ export function Operational(operator) {
           break;
 
         case 'COS':
-          newstack[newstack.length - 1] = Math.cos(radians(newstack[newstack.length - 1]))
+          newstack[newstack.length - 1] = Math.cos(radians(Number(newstack[newstack.length - 1])))
           break;
 
         case 'SIN':
-          newstack[newstack.length - 1] = Math.sin(radians(newstack[newstack.length - 1]))
+          newstack[newstack.length - 1] = Math.sin(radians(Number(newstack[newstack.length - 1])))
           break;
 
         case 'LN':
@@ -164,7 +163,7 @@ export function Operational(operator) {
           break;
 
         case 'TAN':
-          newstack[newstack.length - 1] = Math.tan(radians(newstack[newstack.length - 1]))
+          newstack[newstack.length - 1] = Math.tan(radians(Number(newstack[newstack.length - 1])))
           break;
 
         case '1/x':
@@ -193,7 +192,7 @@ export function Operational(operator) {
           break;
 
         case 'CLX':
-          newstack.pop()
+          //newstack.pop()
           newShow = ''
           break;
 
@@ -205,28 +204,27 @@ export function Operational(operator) {
         case 'CHS':
           let plusIndex = show.indexOf('+')
           let minIndex = show.indexOf('-')
-
-          if (show.includes('+')) {
-            newShow = show.replace(show.charAt(plusIndex), '-');
-          } else if (show.includes('-')) {
-            newShow = show.replace(show.charAt(minIndex), '+');
-          }
-
-          newstack = []
-          newstack[newstack.length - 1] = -(newstack[newstack.length - 1])
+        if (show.includes('e')) {
+            if (show.includes('+')) {
+              newShow = show.replace(show.charAt(plusIndex), '-');
+            } else if (show.includes('-')) {
+              newShow = show.replace(show.charAt(minIndex), '+');
+              newstack[newstack.length - 1] = -(newstack[newstack.length - 1])
+            }
+            newstack = []
+        }
+        else {
+           newstack[newstack.length - 1] = -(newstack[newstack.length - 1])
+        }
           break;
 
 
         case 'ENTER':
-          newstack[0] = Number(newstack[0])
-          console.log(show.includes('e'));
-          if (show.includes('e')) {
+          if(show.includes('e')){
+            newstack[0]=Number(newstack[0])
             newShow = newstack[0].toString()
           }
           break;
-
-
-
 
 
         case 'ARC':
