@@ -18,8 +18,7 @@ class Panel extends Component {
   }
   render() {
 
-   const {panel,show} = store.state
-   //console.log(panel);
+
 
     return (
       <div className='panel'>
@@ -50,31 +49,36 @@ class Panel extends Component {
                className='result-button'
                type='button'
                value='Result'
-               //  onClick={()=>PanelHandler.panelHandle('result')}
-               onClick={this.handleResult.bind(this)}
+              onClick={()=>PanelHandler.panelHandle()}
+              //  onClick={this.handleResult.bind(this)}
             />
           </div>
       </div>
     )
   }
-
-   handleResult() {
-      var x = document.getElementById("myTextarea").value;
-      let newShow=Number(x)
-
-      store.setState({
-        panel:x,
-        show:newShow.toString()
-      })
-  }
+/*
+now its add everything to show later we put something
+later when i press button de result has to be on show
+*/
+  //  handleResult() {
+  //    const {panel,show} = store.state
+  //    var x = document.getElementById("myTextarea").value;
+  //    let newShow = Number(x)
+  //   panel.push(newShow)
+  //    store.setState({
+  //      panel,
+  //      // shows the format of every line its like : \n34
+  //     //  panel:x,
+  //      show: newShow.toString()
+  //    })
+  //  }
 
   handleClean() {
-    // var x = document.getElementById("myTextarea").value;
-    document.getElementById("myTextarea").value='' ;
-     store.setState({
-       panel:''
-     })
- }
+    document.getElementById("myTextarea").value = '';
+    store.setState({
+      panel: ''
+    })
+  }
 }
 
 export default Panel;
