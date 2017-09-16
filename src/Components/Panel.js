@@ -18,27 +18,45 @@ class Panel extends Component {
   }
   render() {
 
+   const {panel} = store.state
+   //console.log(panel);
 
     return (
       <div className='panel'>
           <div className='panel-screen'>
-            <textarea>
-                Enter your program here
+            <textarea placeholder='Enter tour program here'>
+                {panel}
             </textarea>
+
+            <label className='hamuju' >
+              {panel}
+
+            </label>
+
           </div>
+
           <div className='panel-body'>
+
             <label>
                <input type='checkbox' value='on'/>
                <span>Slow</span>
             </label>
+            <input
+
+               className='clean-button'
+               type='button'
+               value='Clean'
+               onClick={()=>PanelHandler.panelHandle('clean')}
+
+            />
 
             <input
                className='result-button'
                type='button'
                value='Result'
-               onClick={()=>PanelHandler.panelHandle()}
+               onClick={()=>PanelHandler.panelHandle('result')}
             />
-          
+
           </div>
       </div>
     )

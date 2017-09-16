@@ -2,5 +2,6 @@ export default {
   stack: [],
   show: '',
   str:[],
-  arc:false
+  arc:false,
+  panel:''
 }
