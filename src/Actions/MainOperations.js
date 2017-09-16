@@ -50,7 +50,7 @@ export function Countable(Digit){
 
 export function Operational(operator) {
   // console.log(operator);
-  const {stack,show,enterMode,str,arc } = store.state
+  const {stack,show,str,arc } = store.state
   let newstack = [...stack]
   let newShow = show
   let newStr=str
@@ -94,7 +94,9 @@ export function Operational(operator) {
     }
 
     if (show === '.') {
-      newShow = ''
+      store.setState({
+        show: ''
+      })
     }
     return
   }
@@ -105,7 +107,7 @@ export function Operational(operator) {
 
     switch (operator) {
       case '+':
-        newstack[newstack.length - 2] = newstack[newstack.length - 2] + newstack[newstack.length - 1]
+        newstack[newstack.length - 2] = Number(newstack[newstack.length - 2] )+ Number(newstack[newstack.length - 1])
         newstack.pop()
         break;
 
@@ -120,7 +122,7 @@ export function Operational(operator) {
         break;
 
       case '/':
-        if (newstack[newstack.length - 1] !== 0) {
+        if (Number(newstack[newstack.length - 1]) !== 0) {
           newstack[newstack.length - 2] = newstack[newstack.length - 2] / newstack[newstack.length - 1]
           newstack.pop()
         }

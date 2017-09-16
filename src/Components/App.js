@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../Css/App.css';
 import store from '../store';
-import {Keyset,Screen} from '.'
+import {Keyset,Screen,Panel} from '.'
 class App extends Component {
 
   componentWillMount() {
@@ -15,10 +15,15 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
-        <Screen/>
-        <Keyset/>
-      </div>
+      <div className='Container'>
+        <div className="App">
+          <Screen/>
+          <Keyset/>
+        </div>
+        <div className="Panel">
+          <Panel/>
+        </div>
+     </div>
     );
   }
 }

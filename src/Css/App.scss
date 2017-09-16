@@ -1,3 +1,9 @@
+
+.Container{
+  display: flex;
+  justify-content: center;
+}
+
 .App{
   display: block;
   position: relative;
@@ -5,7 +11,9 @@
   border-radius: 10px;
   box-sizing:border-box;
   background-color: #4d0026;
-  margin-left: 50%;
-  margin-top: 10%;
+  margin-top: 125px;
   width: 350px;
+}
+.Panel{
+  display: flex;
 }

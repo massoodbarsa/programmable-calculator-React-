@@ -1,0 +1,45 @@
+.panel {
+  display: flex;
+  flex-flow: column;
+  flex-direction: column;
+  flex-wrap: initial;
+  background-color: #000066;
+  margin-top: 130px;
+  width: 300px;
+  height: 600px;
+  position: relative;
+  border: 3px solid black;
+  border-radius: 10px; }
+
+.panel-screen {
+  display: flex;
+  flex-grow: 5;
+  margin: 5px; }
+  .panel-screen textarea {
+    flex-grow: 2;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #ffffff;
+    font-size: 18px; }
+
+.panel-body {
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+  padding: 5px;
+  box-sizing: border-box; }
+  .panel-body button {
+    flex-grow: 2;
+    background-color: #ffccff;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 2px; }
+  .panel-body button:hover {
+    background-color: green;
+    outline: none; }
+  .panel-body button:active {
+    background-color: red;
+    outline: none; }
+  .panel-body label {
+    flex-grow: 1;
+    color: white; }
