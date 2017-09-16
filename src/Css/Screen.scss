@@ -9,9 +9,12 @@
   margin: 4px 10px;
   width: 30px;
   color: #4d0026;
+  transition-duration: 0.5s;
 }
 
 .arc {
   @extend .no-arc;
   color: #ffff00;
+  box-shadow: 0 12px 16px 2px  #ffffff,0 10px 20px 0  #ffff1a;
+  border-radius: 5px
 }
