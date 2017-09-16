@@ -18,21 +18,17 @@ class Panel extends Component {
   }
   render() {
 
-   const {panel} = store.state
+   const {panel,show} = store.state
    //console.log(panel);
 
     return (
       <div className='panel'>
+
           <div className='panel-screen'>
-            <textarea id='myTextarea' placeholder='Enter tour program here' >
-
+            <textarea
+               id='myTextarea'
+               placeholder='Enter tour program here' >
             </textarea>
-
-            <label className='hamuju' >
-              {panel}
-
-            </label>
-
           </div>
 
           <div className='panel-body'>
@@ -41,15 +37,13 @@ class Panel extends Component {
                <input type='checkbox' value='on'/>
                <span>Slow</span>
             </label>
-            <input
 
+            <input
                className='clean-button'
                type='button'
                value='Clean'
               //  onClick={()=>PanelHandler.panelHandle('clean')}
               onClick={this.handleClean.bind(this)}
-
-
             />
 
             <input
@@ -58,19 +52,19 @@ class Panel extends Component {
                value='Result'
                //  onClick={()=>PanelHandler.panelHandle('result')}
                onClick={this.handleResult.bind(this)}
-
             />
-
           </div>
       </div>
     )
   }
 
    handleResult() {
-     console.log('fasiman die');
       var x = document.getElementById("myTextarea").value;
+      let newShow=Number(x)
+
       store.setState({
-        panel:x
+        panel:x,
+        show:newShow.toString()
       })
   }
 
