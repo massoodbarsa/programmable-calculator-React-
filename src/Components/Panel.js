@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import store from '../store';
 import '../Css/Panel.css';
+import * as PanelHandler from '../Actions/PanelHandler'
+
 
 
 class Panel extends Component {
@@ -26,10 +28,17 @@ class Panel extends Component {
           </div>
           <div className='panel-body'>
             <label>
-              <input type='checkbox' value='on'/>
+               <input type='checkbox' value='on'/>
                <span>Slow</span>
             </label>
-            <button>Result</button>
+
+            <input
+               className='result-button'
+               type='button'
+               value='Result'
+               onClick={()=>PanelHandler.panelHandle()}
+            />
+          
           </div>
       </div>
     )

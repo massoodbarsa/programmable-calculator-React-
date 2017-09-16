@@ -10,7 +10,8 @@
   height: 600px;
   position: relative;
   border-left: 3px solid white;
-  border-radius: 10px; }
+  border-radius: 10px;
+  box-shadow: 0 5px 40px  #0000ff,1px 1px 10px  #ffffff; }
 
 .panel-screen {
   display: flex;
@@ -28,7 +29,7 @@
   flex-grow: 1;
   justify-content: flex-end;
   padding: 5px; }
-  .panel-body button {
+  .panel-body .result-button {
     box-sizing: border-box;
     flex-grow: 2;
     background-color: #ffccff;
@@ -38,13 +39,14 @@
     padding: 2px;
     border: 2px solid #ffffff;
     margin: 2px;
-    transition-duration: 0.6s; }
-  .panel-body button:hover {
+    transition-duration: 0.1s; }
+  .panel-body .result-button:hover {
     outline: none;
     box-shadow: 0 5px 10px 2px #ffffff,0 5px 20px 0 #0000ff;
     transition-duration: 0.7s; }
-  .panel-body button:active {
+  .panel-body .result-button:active {
     background-color: #0000ff;
+    font-weight: bold;
     color: #ffff00;
     outline: none;
     transition-duration: 0.1s;
@@ -53,3 +55,5 @@
   .panel-body label {
     flex-grow: 1;
     color: white; }
+  .panel-body span:hover {
+    box-shadow: 0 5px 50px 0 #0000ff,0 5px 20px 0 #ffffff; }
