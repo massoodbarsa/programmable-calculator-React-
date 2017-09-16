@@ -3,5 +3,5 @@ export default {
   show: '',
   str:[],
   arc:false,
-  panel:''
+  panel:'salamm'
 }

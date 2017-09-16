@@ -24,8 +24,8 @@ class Panel extends Component {
     return (
       <div className='panel'>
           <div className='panel-screen'>
-            <textarea placeholder='Enter tour program here'>
-                {panel}
+            <textarea id='myTextarea' placeholder='Enter tour program here' >
+
             </textarea>
 
             <label className='hamuju' >
@@ -46,7 +46,9 @@ class Panel extends Component {
                className='clean-button'
                type='button'
                value='Clean'
-               onClick={()=>PanelHandler.panelHandle('clean')}
+              //  onClick={()=>PanelHandler.panelHandle('clean')}
+              onClick={this.handleClean.bind(this)}
+
 
             />
 
@@ -54,7 +56,9 @@ class Panel extends Component {
                className='result-button'
                type='button'
                value='Result'
-               onClick={()=>PanelHandler.panelHandle('result')}
+               //  onClick={()=>PanelHandler.panelHandle('result')}
+               onClick={this.handleResult.bind(this)}
+
             />
 
           </div>
@@ -62,7 +66,21 @@ class Panel extends Component {
     )
   }
 
+   handleResult() {
+     console.log('fasiman die');
+      var x = document.getElementById("myTextarea").value;
+      store.setState({
+        panel:x
+      })
+  }
 
+  handleClean() {
+    // var x = document.getElementById("myTextarea").value;
+    document.getElementById("myTextarea").value='' ;
+     store.setState({
+       panel:''
+     })
+ }
 }
 
 export default Panel;

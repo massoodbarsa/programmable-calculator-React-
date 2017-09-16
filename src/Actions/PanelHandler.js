@@ -5,7 +5,7 @@ import store from '../store';
    const {panel} = store.state
    let newPanel = panel
    if (value==='result') {
-      newPanel=value
+      newPanel=panel
    }
    if(value==='clean'){
      newPanel=''
