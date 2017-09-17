@@ -1,6 +1,8 @@
 import store from '../store';
 import degrees from 'radians-degrees';
 import radians from 'degrees-radians';
+import * as keyCode from '../Components/keyCodes'
+
 
 
 
@@ -9,47 +11,68 @@ export function Countable(Digit){
 
   const {show} = store.state
   let newShow = show
+      switch (Digit) {
+    case keyCode.D0:
+    case keyCode.D1:
+    case keyCode.D2:
+    case keyCode.D3:
+    case keyCode.D4:
+    case keyCode.D5:
+    case keyCode.D6:
+    case keyCode.D7:
+    case keyCode.D8:
+    case keyCode.D9:
+    case keyCode.DOT:
+    case keyCode.PI:
 
-    if (Digit==='3.141592653589793') {
-      if(show!=='')
-      return
-    }
 
+      if (Digit === keyCode.PI) {
+        console.log('selaaam');
+        newShow=Math.PI
+        
+        store.setState({
+          show: newShow
+        })
 
-    if (Digit === '.') {
-      if (show.includes('.')) {
-        return
+        if (show !== '')
+          return
       }
-      newShow = show === '' ? '0' + String(Digit) : show + Digit
-    }
 
 
-    if (show.includes('e')) {
+      if (Digit === '.') {
+        if (show.includes('.')) {
+          return
+        }
+        newShow = show === '' ? '0' + String(Digit) : show + Digit
+      }
 
-    let plusIndex = show.indexOf('+')
-    let minIndex = show.indexOf('-')
 
-    if (show.includes('+')) {
-      newShow = show.replace(show.charAt(plusIndex + 1), '') + Digit;
-    } else if (show.includes('-')) {
-      newShow = show.replace(show.charAt(minIndex + 1), '') + Digit;
-    }
+      if (show.includes('e')) {
 
-  } else {
-    newShow = show === '' ? String(Digit) : show + Digit
+        let plusIndex = show.indexOf('+')
+        let minIndex = show.indexOf('-')
 
+        if (show.includes('+')) {
+          newShow = show.replace(show.charAt(plusIndex + 1), '') + Digit;
+        } else if (show.includes('-')) {
+          newShow = show.replace(show.charAt(minIndex + 1), '') + Digit;
+        }
+
+      } else {
+        newShow = show === '' ? String(Digit) : show + Digit
+
+      }
+
+      store.setState({
+        show: newShow
+      })
   }
-
-   store.setState({
-    show:newShow
-    })
 }
 
 
 
-
 export function Operational(operator) {
-  // console.log(operator);
+  console.log(operator);
   const {stack,show,str,arc } = store.state
   let newstack = [...stack]
   let newShow = show
@@ -73,7 +96,7 @@ export function Operational(operator) {
 
   ///////EEX
 
-  if (operator === "EEX") {
+  if (operator === keyCode.EEX) {
     let changable = 0
 //to prevent add an exponent to the
 //priviuos van by clicking on eex again
@@ -106,34 +129,34 @@ export function Operational(operator) {
   if (newstack.length > 1) {
 
     switch (operator) {
-      case '+':
+      case keyCode.ADD:
         newstack[newstack.length - 2] = Number(newstack[newstack.length - 2] )+ Number(newstack[newstack.length - 1])
         newstack.pop()
         break;
 
-      case '-':
+      case keyCode.SUB:
         newstack[newstack.length - 2] = newstack[newstack.length - 2] - newstack[newstack.length - 1]
         newstack.pop()
         break;
 
-      case '*':
+      case keyCode.MUL:
         newstack[newstack.length - 2] = newstack[newstack.length - 2] * newstack[newstack.length - 1]
         newstack.pop()
         break;
 
-      case '/':
+      case keyCode.DIV:
         if (Number(newstack[newstack.length - 1]) !== 0) {
           newstack[newstack.length - 2] = newstack[newstack.length - 2] / newstack[newstack.length - 1]
           newstack.pop()
         }
         break;
 
-      case 'XY':
+      case keyCode.POW:
         newstack[newstack.length - 2] = Math.pow(newstack[newstack.length - 2], newstack[newstack.length - 1]);
         newstack.pop()
         break;
 
-      case 'R':
+      case keyCode.ROLL_DOWN:
         const [a, b, c] = store.state.stack
         newstack = [c, a, b]
         break;
@@ -148,52 +171,52 @@ export function Operational(operator) {
       switch (operator) {
 
 
-        case 'SQRT':
+        case keyCode.SQRT:
           newstack[newstack.length - 1] = Math.sqrt(newstack[newstack.length - 1])
           break;
 
-        case 'COS':
+        case keyCode.COS:
           newstack[newstack.length - 1] = Math.cos(radians(Number(newstack[newstack.length - 1])))
           break;
 
-        case 'SIN':
+        case keyCode.SIN:
           newstack[newstack.length - 1] = Math.sin(radians(Number(newstack[newstack.length - 1])))
           break;
 
-        case 'LN':
+        case keyCode.LN:
           newstack[newstack.length - 1] = Math.log(newstack[newstack.length - 1])
           break;
 
-        case 'TAN':
+        case keyCode.TAN:
           newstack[newstack.length - 1] = Math.tan(radians(Number(newstack[newstack.length - 1])))
           break;
 
-        case '1/x':
+        case keyCode.RECIPROCAL:
           newstack[newstack.length - 1] = 1 / newstack[newstack.length - 1]
           break;
 
-        case 'LOG':
+        case keyCode.LOG:
           newstack[newstack.length - 1] = Math.log(newstack[newstack.length - 1]) / Math.LN10
           break;
 
-        case 'EXP':
+        case keyCode.EXP:
           newstack[newstack.length - 1] = Math.exp(newstack[newstack.length - 1])
           break;
 
-        case 'xy':
+        case keyCode.SWAP:
           const [x, y, ...rest] = store.state.stack
           newstack = [y, x, ...rest]
           break;
 
-        case 'STO':
+        case keyCode.STO:
           newStr = newstack[0]
           break;
 
-        case 'RCL':
+        case keyCode.RCL:
           newstack.push(Number(newStr))
           break;
 
-        case 'CLX':
+        case keyCode.CLX:
           if (newstack.length>=1&&show==='') {
             return
           }
@@ -201,12 +224,12 @@ export function Operational(operator) {
           newShow = ''
           break;
 
-        case 'CLR':
+        case keyCode.CLR:
           newstack = ''
           newShow = ''
           break;
 
-        case 'CHS':
+        case keyCode.CHS:
           let plusIndex = show.indexOf('+')
           let minIndex = show.indexOf('-')
         if (show.includes('e')) {
@@ -224,15 +247,32 @@ export function Operational(operator) {
           break;
 
 
-        case 'ENTER':
+        case keyCode.ENTER:
           if(show.includes('e')){
             newstack[0]=Number(newstack[0])
             newShow = newstack[0].toString()
           }
           break;
 
+        // case keyCode.PI:
+        //     console.log('selaaam');
+        //     newShow=Math.PI
+        //     newstack[0]=Number(newShow)
+        //
+        //
+        // if (show !== '')
+        //   return
+        //
+        //   break;
 
-        case 'ARC':
+
+
+
+
+
+
+
+        case keyCode.ARC:
           let arc = true
           store.setState({
             arc
@@ -249,20 +289,20 @@ export function Operational(operator) {
 
       switch (operator) {
 
-        case 'COS':
+        case keyCode.COS:
           newstack[newstack.length - 1] = degrees(Math.acos(newstack[newstack.length - 1]))
           newShow = ''
           break;
 
-        case 'SIN':
+        case keyCode.SIN:
           newstack[newstack.length - 1] = degrees(Math.asin(newstack[newstack.length - 1]))
           break;
 
-        case 'TAN':
+        case keyCode.TAN:
           newstack[newstack.length - 1] = degrees(Math.atan(newstack[newstack.length - 1]))
           break;
 
-        case 'ARC':
+        case keyCode.ARC:
           let arc = false
           store.setState({
             arc

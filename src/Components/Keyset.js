@@ -1,6 +1,8 @@
 import React from 'react'
 import{CountableButtons,OperationalButtons} from '.'
 import '../Css/Keyset.css'
+import * as keyCode from './keyCodes'
+
 
 export default class Keyset extends React.Component{
 
@@ -14,100 +16,101 @@ export default class Keyset extends React.Component{
                <div className='keyset_first_1'>
                   <OperationalButtons
                      label='Xʸ'
-                     value='XY'
+                     value={keyCode.POW}
+
                   />
                   <OperationalButtons
                      label='LOG'
-                     value='LOG'
+                     value={keyCode.LOG}
                   />
 
                    <OperationalButtons
                      label='LN'
-                     value='LN'
+                     value={keyCode.LN}
                     />
 
                   <OperationalButtons
                      label='eˣ'
-                     value='EXP'
+                     value={keyCode.EXP}
                     />
                 <div className='green'>
                   <OperationalButtons
                      label='CLR'
-                     value='CLR'
+                     value={keyCode.CLR}
                   />
                  </div>
                   <OperationalButtons
                      label='√x'
-                     value='SQRT'
+                     value={keyCode.SQRT}
                   />
 
                  <div className='pink'>
                   <OperationalButtons
                      label='ARC'
-                     value='ARC'
+                     value={keyCode.ARC}
                   /> </div>
 
                  <div className='pink'>
                   <OperationalButtons
                      label='SIN'
-                     value='SIN'
+                     value={keyCode.SIN}
                   /> </div>
                   <div className='pink'>
                   <OperationalButtons
                      label='COS'
-                     value='COS'
+                     value={keyCode.COS}
                   /></div>
                   <div className='pink'>
                   <OperationalButtons
                      label='TAN'
-                     value='TAN'
+                     value={keyCode.TAN}
                   /></div>
 
                   <OperationalButtons
                      label='¹/x'
-                     value='1/x'
+                     value={keyCode.RECIPROCAL}
                   />
 
                   <OperationalButtons
                      label='x↔y'
-                     value='xy'
+                     value={keyCode.SWAP}
                   />
 
                   <OperationalButtons
                      label='R↓'
-                     value='R'
+                     value={keyCode.ROLL_DOWN}
                   />
 
                   <OperationalButtons
                      label='STO'
-                     value='STO'
+                     value={keyCode.STO}
                   />
 
                   <OperationalButtons
                      label='RCL'
-                     value='RCL'
+                     value={keyCode.RCL}
                   />
                </div>
                <div className='keyset_first_2' >
 
                   <OperationalButtons
                      label='ENTER ↑'
-                     value='ENTER'
+                     value={keyCode.ENTER}
                   />
 
                   <OperationalButtons
                      label='CHS'
-                     value='CHS'
+                     value={keyCode.CHS}
                   />
 
                   <OperationalButtons
                      label='EEX'
-                     value='EEX'
+                     value={keyCode.EEX}
                   />
 
                   <OperationalButtons
                      label='CLX'
-                     value='CLX'
+                     value={keyCode.CLX}
                   />
             </div>
           </div>
@@ -116,19 +119,19 @@ export default class Keyset extends React.Component{
               <div className='keyset_second_1' >
                   <OperationalButtons
                      label='−'
-                     value='-'
+                     value={keyCode.SUB}
                   />
                   <OperationalButtons
                      label='+'
-                     value='+'
+                     value={keyCode.ADD}
                   />
                    <OperationalButtons
                      label='×'
-                     value='*'
+                     value={keyCode.MUL}
                     />
                   <OperationalButtons
                      label='÷'
-                     value='/'
+                     value={keyCode.DIV}
                     />
                </div>
                <div className='keyset_second_2'>
@@ -136,54 +139,54 @@ export default class Keyset extends React.Component{
 
                  <CountableButtons
                     label='7'
-                    value='7'
+                    value={keyCode.D7}
                  />
                  <CountableButtons
                     label='8'
-                    value='8'
+                    value={keyCode.D8}
                  />
                  <CountableButtons
                     label='9'
-                    value='9'
+                    value={keyCode.D9}
                  />
 
                  <CountableButtons
                     label='4'
-                    value='4'
+                    value={keyCode.D4}
                  />
                  <CountableButtons
                     label='5'
-                    value='5'
+                    value={keyCode.D5}
                  />
                  <CountableButtons
                     label='6'
-                    value='6'
+                    value={keyCode.D6}
                  />
                   <CountableButtons
                      label='1'
-                     value='1'
+                     value={keyCode.D1}
                   />
                   <CountableButtons
                      label='2'
-                     value='2'
+                     value={keyCode.D2}
                   />
                   <CountableButtons
                      label='3'
-                     value='3'
+                     value={keyCode.D3}
                   />
 
                   <CountableButtons
                      label='0'
-                     value='0'
+                     value={keyCode.D0}
                   />
                   <CountableButtons
                      label='.'
-                     value='.'
+                     value={keyCode.DOT}
                   />
 
                   <CountableButtons
                      label='π'
-                     value='3.141592653589793'
+                     value={keyCode.PI}
                   />
              </div>
           </div>
