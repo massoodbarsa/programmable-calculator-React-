@@ -5,9 +5,12 @@ import store from '../store';
      const {panel,show} = store.state
      var x = document.getElementById("myTextarea").value;
      let newShow = Number(x)
-     panel.push(newShow)
-     console.log(panel);
+     panel.push(newShow.toString())
      //use replace() to drop \n if there is one
+    //  let newpanel=panel.forEach(index=>{
+    //    return index
+    //  })
+    //  console.log(newpanel);
 
      store.setState({
        panel,

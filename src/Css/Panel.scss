@@ -1,4 +1,4 @@
-.panel {
+.panel-open {
   box-sizing: border-box;
   display: flex;
   flex-flow: column;
@@ -12,6 +12,17 @@
   border-left: 3px solid white;
   border-radius: 10px;
   box-shadow: 0 5px 40px #0000ff,1px 1px 10px #ffffff;
+  animation-name: example;
+  animation-duration: 4s;
+}
+.panel-close{
+  display: none;
+  
+
+}
+@-webkit-keyframes example {
+    from {background-color: #ffffff;}
+    to {background-color: #000066;}
 }
 
 .panel-screen {
@@ -81,7 +92,4 @@
   color: #47d147;
   background-color: #47d147
 
-}
-.hamuju{
-  background-color: red
 }

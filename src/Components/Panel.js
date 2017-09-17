@@ -18,10 +18,13 @@ class Panel extends Component {
   }
   render() {
 
-
-
+  const {programOpen}=store.state
+  let clas='panel-close'
+   if(programOpen===true){
+      clas='panel-open'
+   }
     return (
-      <div className='panel'>
+      <div className={`${clas}`}>
 
           <div className='panel-screen'>
             <textarea
@@ -33,7 +36,10 @@ class Panel extends Component {
           <div className='panel-body'>
 
             <label>
-               <input type='checkbox' value='on'/>
+               <input
+                 type='checkbox'
+                 value='on'
+               />
                <span>Slow</span>
             </label>
 

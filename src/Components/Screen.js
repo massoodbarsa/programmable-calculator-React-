@@ -17,6 +17,7 @@ class Screen extends Component {
   }
   render() {
     const {stack,show,arc} = {...store.state}
+    
     let clas='no-arc'
 
     if(arc){
@@ -25,8 +26,16 @@ class Screen extends Component {
 
     return (
       <div className="Screen">
-
-           <h3 className={`${clas}`} >Arc</h3>
+           <div className='screen-key'>
+               <h3 className={`${clas}`} >Arc</h3>
+               <input
+                  className='open-panel'
+                  type='button'
+                  value='Open Panel'
+                //  onClick={()=>PanelHandler.panelHandle()}
+                   onClick={this.handleProgramPanel.bind(this)}
+               />
+           </div>
           <Rows
           //  stack={value}
             row={stack[stack.length-3]}
@@ -45,7 +54,11 @@ class Screen extends Component {
       </div>
     );
   }
-
+  handleProgramPanel(){
+    store.setState({
+      programOpen:true
+    })
+  }
 
 }
 

@@ -3,5 +3,6 @@ export default {
   show: '',
   str:[],
   arc:false,
-  panel:[]
+  panel:[],
+  programOpen:false
 }
