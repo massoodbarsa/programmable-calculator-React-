@@ -1,21 +1,39 @@
 import store from '../store';
+// import * as keyCode from '../Components/keyCodes'
 
- export function panelHandle(){
 
-     const {panel,show} = store.state
-     var x = document.getElementById("myTextarea").value;
-     let newShow = Number(x)
-     panel.push(newShow.toString())
-     //use replace() to drop \n if there is one
-    //  let newpanel=panel.forEach(index=>{
-    //    return index
-    //  })
-    //  console.log(newpanel);
+export function panelHandle() {
 
-     store.setState({
-       panel,
-       // shows the format of every line its like : \n34
-      //  panel:x,
-       show: newShow.toString()
-     })
-   }
+  const {
+    panel,
+    show,
+    keyCode
+  } = store.state
+
+  let x = document.getElementById("myTextarea").value;
+  let newPanel = []
+  let newKeyCode = keyCode
+
+  //make an array of panel inputs en \n of every new line
+  let arr = x.split('\n')
+
+  //make an array of panel members which belongs to keyCode or are numbers
+  arr.map(index => {
+    if (Number.isInteger(parseInt(index))) { //if number push
+      newPanel.push(index.toString())
+    } else { //not number then see if it belongs to panel
+      for (let i = 0; i < newKeyCode.length; i++) {
+        if (newKeyCode[i] === index) {
+          newPanel.push(index)
+        }
+      }
+    }
+  })
+  console.log(newPanel);
+  //panel calculation
+
+
+  store.setState({
+    panel: newPanel
+  })
+}

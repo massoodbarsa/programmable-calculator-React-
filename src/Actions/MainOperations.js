@@ -5,8 +5,6 @@ import * as keyCode from '../Components/keyCodes'
 
 
 
-
-
 export function Countable(Digit){
 
   const {show} = store.state
@@ -25,13 +23,13 @@ export function Countable(Digit){
     case keyCode.DOT:
     case keyCode.PI:
 
-
+  //has to be fixed.first click gives 'pi'
       if (Digit === keyCode.PI) {
         console.log('selaaam');
         newShow=Math.PI
-        
+
         store.setState({
-          show: newShow
+          show: newShow.toString()
         })
 
         if (show !== '')
@@ -253,23 +251,6 @@ export function Operational(operator) {
             newShow = newstack[0].toString()
           }
           break;
-
-        // case keyCode.PI:
-        //     console.log('selaaam');
-        //     newShow=Math.PI
-        //     newstack[0]=Number(newShow)
-        //
-        //
-        // if (show !== '')
-        //   return
-        //
-        //   break;
-
-
-
-
-
-
 
 
         case keyCode.ARC:

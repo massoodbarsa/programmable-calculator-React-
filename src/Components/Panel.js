@@ -29,7 +29,9 @@ class Panel extends Component {
           <div className='panel-screen'>
             <textarea
                id='myTextarea'
-               placeholder='Enter tour program here' >
+               placeholder='Enter tour program here'
+               required
+               autofocus>
             </textarea>
           </div>
 
