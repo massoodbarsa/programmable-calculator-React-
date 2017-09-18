@@ -46,9 +46,9 @@
   .panel-body span:hover {
     box-shadow: 0 5px 50px 0 #0000ff,0 5px 20px 0 #ffffff; }
 
-.result-button, .clean-button {
+.result-button, .clean-button, .refine-button {
   box-sizing: border-box;
-  flex-grow: 2;
+  flex-grow: 1;
   background-color: #ffccff;
   border-radius: 10px;
   font-size: 20px;
@@ -58,12 +58,12 @@
   margin: 2px;
   transition-duration: 0.1s; }
 
-.result-button:hover, .clean-button:hover {
+.result-button:hover, .clean-button:hover, .refine-button:hover {
   outline: none;
   box-shadow: 0 5px 10px 2px #ffffff,0 5px 20px 0 #0000ff;
   transition-duration: 0.7s; }
 
-.result-button:active, .clean-button:active {
+.result-button:active, .clean-button:active, .refine-button:active {
   background-color: #0000ff;
   font-weight: bold;
   color: #ffff00;

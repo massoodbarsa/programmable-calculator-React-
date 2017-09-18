@@ -31,7 +31,8 @@ class Panel extends Component {
                id='myTextarea'
                placeholder='Enter tour program here'
                required
-               autofocus>
+               autoFocus
+            >
             </textarea>
           </div>
 
@@ -46,6 +47,15 @@ class Panel extends Component {
             </label>
 
             <input
+               className='refine-button'
+               type='button'
+               value='Refine'
+               onClick={()=>PanelHandler.refinePanel()}
+            />
+
+
+
+            <input
                className='clean-button'
                type='button'
                value='Clean'
@@ -57,8 +67,7 @@ class Panel extends Component {
                className='result-button'
                type='button'
                value='Result'
-              onClick={()=>PanelHandler.panelHandle()}
-              //  onClick={this.handleResult.bind(this)}
+              onClick={()=>PanelHandler.handlePanel()}
             />
           </div>
       </div>

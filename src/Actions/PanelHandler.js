@@ -1,8 +1,9 @@
 import store from '../store';
+import Panel from '../Components/Panel'
 // import * as keyCode from '../Components/keyCodes'
 
 
-export function panelHandle() {
+export function handlePanel() {
 
   const {
     panel,
@@ -10,7 +11,7 @@ export function panelHandle() {
     keyCode
   } = store.state
 
-  let x = document.getElementById("myTextarea").value;
+  let x = document.getElementById("myTextarea").value.toLowerCase();
   let newPanel = []
   let newKeyCode = keyCode
 
@@ -32,8 +33,21 @@ export function panelHandle() {
   console.log(newPanel);
   //panel calculation
 
-
   store.setState({
     panel: newPanel
   })
+}
+
+//click on refine button to refine the panel
+export function refinePanel() {
+  handlePanel()
+  const {
+    panel
+  } = store.state
+  let newPanel = panel
+  document.getElementById("myTextarea").value = ''
+  newPanel.map(index => {
+    document.getElementById("myTextarea").value += '\n' + index + '\n';
+  })
+
 }
