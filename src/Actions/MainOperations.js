@@ -70,7 +70,6 @@ export function Countable(Digit){
 
 
 export function Operational(operator) {
-  console.log(operator);
   const {stack,show,str,arc } = store.state
   let newstack = [...stack]
   let newShow = show
@@ -128,11 +127,14 @@ export function Operational(operator) {
 
     switch (operator) {
       case keyCode.ADD:
+        console.log('add zede shod');
         newstack[newstack.length - 2] = Number(newstack[newstack.length - 2] )+ Number(newstack[newstack.length - 1])
         newstack.pop()
         break;
 
       case keyCode.SUB:
+      console.log('menha ham zede shod');
+
         newstack[newstack.length - 2] = newstack[newstack.length - 2] - newstack[newstack.length - 1]
         newstack.pop()
         break;

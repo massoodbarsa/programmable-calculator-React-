@@ -67,7 +67,7 @@ class Panel extends Component {
                className='result-button'
                type='button'
                value='Result'
-              onClick={()=>PanelHandler.handlePanel()}
+              onClick={()=>PanelHandler.handleResult()}
             />
           </div>
       </div>
