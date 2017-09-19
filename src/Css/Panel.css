@@ -30,10 +30,13 @@
   margin: 5px; }
   .panel-screen textarea {
     flex-grow: 2;
-    border-radius: 5px;
-    padding: 5px;
+    border-radius: 7px;
+    padding: 15px;
     background-color: #ffffff;
-    font-size: 18px; }
+    font-size: 23px;
+    font-weight: bold;
+    font-style: oblique;
+    color: #000066; }
 
 .panel-body {
   display: flex;
@@ -45,6 +48,12 @@
     color: white; }
   .panel-body span:hover {
     box-shadow: 0 5px 50px 0 #0000ff,0 5px 20px 0 #ffffff; }
+
+.checkbox {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  margin-top: 10px; }
 
 .result-button, .clean-button, .refine-button {
   box-sizing: border-box;

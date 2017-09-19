@@ -38,13 +38,24 @@ class Panel extends Component {
 
           <div className='panel-body'>
 
-            <label>
-               <input
-                 type='checkbox'
-                 value='on'
-               />
-               <span>Slow</span>
-            </label>
+              <div className='checkbox'>
+                  <label>
+                     <input
+                       type='checkbox'
+                       value='on'
+                     />
+                     <span>Slow</span>
+                  </label>
+
+                  <label>
+                     <input
+                       type='checkbox'
+                       value='on'
+                     />
+                     <span>Rec</span>
+                  </label>
+              </div>
+
 
             <input
                className='refine-button'

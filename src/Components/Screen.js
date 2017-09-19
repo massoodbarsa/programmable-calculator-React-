@@ -17,7 +17,7 @@ class Screen extends Component {
   }
   render() {
     const {stack,show,arc} = {...store.state}
-    
+
     let clas='no-arc'
 
     if(arc){
@@ -32,8 +32,7 @@ class Screen extends Component {
                   className='open-panel'
                   type='button'
                   value='Open Panel'
-                //  onClick={()=>PanelHandler.panelHandle()}
-                   onClick={this.handleProgramPanel.bind(this)}
+                  onClick={this.handleProgramPanel.bind(this)}
                />
            </div>
           <Rows
