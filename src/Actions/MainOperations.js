@@ -70,10 +70,12 @@ export function Countable(Digit){
 
 
 export function Operational(operator) {
-  const {stack,show,str,arc } = store.state
+  const {stack,show,str,arc,panel } = store.state
   let newstack = [...stack]
   let newShow = show
   let newStr=str
+  let newPanel=[...panel]
+
 
   if (show !== '') {
 //any click add the show to the stack
@@ -227,6 +229,7 @@ export function Operational(operator) {
         case keyCode.CLR:
           newstack = ''
           newShow = ''
+
           break;
 
         case keyCode.CHS:

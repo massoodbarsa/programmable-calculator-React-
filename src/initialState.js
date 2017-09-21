@@ -5,6 +5,7 @@ export default {
   arc: false,
   panel: [],
   programOpen: true,
+  rec:false,
   keyCode: [
     'acos',
     'add',

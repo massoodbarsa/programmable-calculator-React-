@@ -42,7 +42,7 @@ class Panel extends Component {
                   <label>
                      <input
                        type='checkbox'
-                       value='on'
+                       unchecked
                      />
                      <span>Slow</span>
                   </label>
@@ -50,7 +50,13 @@ class Panel extends Component {
                   <label>
                      <input
                        type='checkbox'
-                       value='on'
+                       ref='rec'
+
+                       unchecked
+                       onClick={this.handleRec.bind(this)}
+
+
+
                      />
                      <span>Rec</span>
                   </label>
@@ -100,6 +106,22 @@ later when i press button de result has to be on show
   //      show: newShow.toString()
   //    })
   //  }
+
+  handleRec(){
+    console.log(this.refs.rec.checked);
+    if(this.refs.rec.checked===true){
+
+      store.setState({
+        rec:true
+      })
+    }
+    else {
+      store.setState({
+        rec:false
+      })
+    }
+  }
+
 
   handleClean() {
     document.getElementById("myTextarea").value = '';

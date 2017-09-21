@@ -22,7 +22,7 @@ export function handlePanel() {
   arr.map(index => {
     if (Number.isInteger(parseInt(index))) { //if number push
       newPanel.push(index.toString())
-    } else { //not number then see if it belongs to panel
+    } else { //not a number then see if it belongs to panel
       for (let i = 0; i < newKeyCode.length; i++) {
         if (newKeyCode[i] === index) {
           newPanel.push(index)
@@ -54,28 +54,31 @@ export function refinePanel() {
 
 //handle button 'Result'
 export function handleResult() {
-  handlePanel()
-  const {
-    panel,
-    show,
-    stack
 
-  } = store.state
+  handlePanel()
+
+  const {panel,show,stack} = store.state
 
   let newPanel = panel
   let newStack = stack
   let newShow  = show
 
-  newPanel.map(index => {
 
+
+  newPanel.map(index => {
 //if panel is number
     if (Number.isInteger(parseInt(index))) {
-      stack.push(index.toString()) //add to stack
+      newStack.push(index) //add to stack
 
       if(stack.length>3){
-        stack.pop()
+        newStack.pop()
+
+        store.setState({
+          stack:newStack,
+        })
       }
     }else{ //call operational function
+      index=index.toString()
       MainOperations.Operational(index)
       if(stack.length-1 >=2){//if 3 digit do operator*2
         MainOperations.Operational(index)
