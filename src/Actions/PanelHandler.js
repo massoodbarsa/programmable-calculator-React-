@@ -57,7 +57,7 @@ export function handleResult() {
 
   handlePanel()
 
-  const {panel,show,stack} = store.state
+  const {panel,show,stack,rec} = store.state
 
   let newPanel = panel
   let newStack = stack

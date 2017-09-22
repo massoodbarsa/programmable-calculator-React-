@@ -45,20 +45,26 @@ export function Countable(Digit){
       }
 
 
-      if (show.includes('e')) {
+      if (newShow.includes('e')) {
 
-        let plusIndex = show.indexOf('+')
-        let minIndex = show.indexOf('-')
-
-        if (show.includes('+')) {
-          newShow = show.replace(show.charAt(plusIndex + 1), '') + Digit;
-        } else if (show.includes('-')) {
-          newShow = show.replace(show.charAt(minIndex + 1), '') + Digit;
-        }
-
-      } else {
-        newShow = show === '' ? String(Digit) : show + Digit
-
+        let plusIndex = newShow.indexOf('+')
+        let minIndex  = newShow.indexOf('-')
+        newShow=newShow.replace('0','')
+        newShow+=Digit
+      //
+      //   if (show.includes('+')) {
+      //     newShow=newShow.replace('0','')
+      //     newShow+=Digit
+      //     console.log(newShow.indexOf('+'));
+      //     console.log();
+      //   } else if (show.includes('-')) {
+      //     newShow = show.replace(newShow[newShow.indexOf('e')], '') ;
+      //     newShow=show+Digit
+      //   }
+      //
+      // } else {
+      //   newShow = show === '' ? String(Digit) : show + Digit
+      //
       }
 
       store.setState({
@@ -77,9 +83,9 @@ export function Operational(operator) {
   let newPanel=[...panel]
 
 
-  if (show !== '') {
-//any click add the show to the stack
-    newstack.push(show)
+  if (newShow !== '') {
+//any click add the newShow to the stack
+    newstack.push(newShow)
     newShow = ''
 //fix it later
 //do not allow the length of stack exceeds 3
@@ -87,7 +93,7 @@ export function Operational(operator) {
       newstack.pop(newstack[3])
     }
 
-    if (show === '.') {
+    if (newShow === '.') {
 //any click do not allows '.' in stack
       newstack[0] = 0
     }
@@ -96,22 +102,22 @@ export function Operational(operator) {
   ///////EEX
 
   if (operator === keyCode.EEX) {
-    let changable = 0
+    let changable = "0"
 //to prevent add an exponent to the
-//priviuos van by clicking on eex again
+//priviuos  by clicking on eex again
     if (show.includes("e")||show.length>=3) {
       return
     }
 
     if (show === ''){
-      //newShow=1 + 'e' + '+' + changable
+      newShow="1" + 'e' + '+' + changable
       store.setState({
-        show: 1 + 'e' + '+' + changable
+        show: newShow
       })
     } else {
-      //newShow=newShow + 'e' + '+' + changable
+      newShow=show + 'e' + '+' + changable
       store.setState({
-        show: show + 'e' + '+' + changable
+        show: newShow
       })
     }
 
@@ -121,6 +127,7 @@ export function Operational(operator) {
       })
     }
     return
+
   }
 
 
