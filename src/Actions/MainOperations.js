@@ -47,24 +47,12 @@ export function Countable(Digit){
 
       if (newShow.includes('e')) {
 
-        let plusIndex = newShow.indexOf('+')
-        let minIndex  = newShow.indexOf('-')
         newShow=newShow.replace('0','')
         newShow+=Digit
-      //
-      //   if (show.includes('+')) {
-      //     newShow=newShow.replace('0','')
-      //     newShow+=Digit
-      //     console.log(newShow.indexOf('+'));
-      //     console.log();
-      //   } else if (show.includes('-')) {
-      //     newShow = show.replace(newShow[newShow.indexOf('e')], '') ;
-      //     newShow=show+Digit
-      //   }
-      //
-      // } else {
-      //   newShow = show === '' ? String(Digit) : show + Digit
-      //
+
+      } else {
+        newShow = show === '' ? String(Digit) : show + Digit
+
       }
 
       store.setState({
