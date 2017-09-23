@@ -78,7 +78,7 @@ export function handleResult() {
         })
       }
     }else{ //call operational function
-  
+      
       index=index.toString()
       MainOperations.Operational(index)
       if(stack.length-1 >=2){//if 3 digit do operator*2

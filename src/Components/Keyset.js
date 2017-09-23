@@ -179,7 +179,7 @@ export default class Keyset extends React.Component{
                      label='0'
                      value={keyCode.D0}
                   />
-                  <OperationalButtons
+                  <CountableButtons
                      label='.'
                      value={keyCode.DOT}
                   />
