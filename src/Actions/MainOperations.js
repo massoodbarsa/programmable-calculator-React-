@@ -9,6 +9,7 @@ export function Countable(Digit){
 
   const {show} = store.state
   let newShow = show
+
       switch (Digit) {
     case keyCode.D0:
     case keyCode.D1:
@@ -23,41 +24,46 @@ export function Countable(Digit){
     case keyCode.DOT:
     case keyCode.PI:
 
-  //has to be fixed.first click gives 'pi'
-      if (Digit === keyCode.PI) {
-        console.log('selaaam');
-        newShow=Math.PI
 
-        store.setState({
-          show: newShow.toString()
-        })
 
-        if (show !== '')
-          return
-      }
-
+  // //has to be fixed.first click gives 'pi'
+      // if (Digit === keyCode.PI) {
+      //   console.log('selaaam');
+      //   newShow=Math.PI
+      //
+      //
+      //   store.setState({
+      //     show: newShow.toString()
+      //   })
+      //
+      //   if (show !== '')
+      //     return
+      // }
+  //
 
       if (Digit === '.') {
         if (show.includes('.')) {
           return
         }
-        newShow = show === '' ? '0' + String(Digit) : show + Digit
+      //  newShow = show === '' ? '0' + String(Digit) : '0'+'.'+show + Digit
+
       }
 
 
       if (newShow.includes('e')) {
-
-        newShow=newShow.replace('0','')
-        newShow+=Digit
-
+        newShow = newShow.replace('0', '')
+        newShow += Digit
       } else {
         newShow = show === '' ? String(Digit) : show + Digit
-
       }
+
+/////////
 
       store.setState({
         show: newShow
       })
+
+
   }
 }
 
@@ -70,6 +76,11 @@ export function Operational(operator) {
   let newStr=str
   let newPanel=[...panel]
 
+  if(operator===keyCode.PI){
+   newShow=Math.PI
+  }
+
+
 
   if (newShow !== '') {
 //any click add the newShow to the stack
@@ -81,9 +92,10 @@ export function Operational(operator) {
       newstack.pop(newstack[3])
     }
 
-    if (newShow === '.') {
+    if (show == '.') {
 //any click do not allows '.' in stack
       newstack[0] = 0
+
     }
   }
 

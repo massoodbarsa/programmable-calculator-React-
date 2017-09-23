@@ -179,12 +179,12 @@ export default class Keyset extends React.Component{
                      label='0'
                      value={keyCode.D0}
                   />
-                  <CountableButtons
+                  <OperationalButtons
                      label='.'
                      value={keyCode.DOT}
                   />
 
-                  <CountableButtons
+                  <OperationalButtons
                      label='π'
                      value={keyCode.PI}
                   />
