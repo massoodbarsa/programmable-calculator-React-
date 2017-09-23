@@ -234,7 +234,7 @@ export function Operational(operator) {
           break;
 
         case keyCode.CLR:
-          newstack = ''
+          newstack = []
           newShow = ''
 
           break;
