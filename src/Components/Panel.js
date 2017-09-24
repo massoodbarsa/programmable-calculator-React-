@@ -18,10 +18,15 @@ class Panel extends Component {
   render() {
 
   const {programOpen,rec}=store.state
-
+//open and close panel
   let clas='panel-close'
    if(programOpen===true){
       clas='panel-open'
+   }
+//change the color of rec button when on and off
+   let recClassName='rec-off'
+   if(store.state.rec===true){
+      recClassName='rec-on'
    }
 
     return (
@@ -50,13 +55,11 @@ class Panel extends Component {
 
                   <label>
                      <input
-                       id='rec'
-                       type='checkbox'
-                       ref='rec'
-                       unchecked
+                       className={`${recClassName}`}
+                       type='button'
+                       value='Rec'
                        onClick={this.handleRec.bind(this)}
                      />
-                     <span>Rec</span>
                   </label>
               </div>
 
@@ -88,7 +91,7 @@ class Panel extends Component {
   }
 
   handleRec(){
-    if(this.refs.rec.checked===true){
+    if (store.state.rec===false) {
       store.setState({
         rec:true
       })
@@ -97,18 +100,6 @@ class Panel extends Component {
         rec:false
       })
     }
-
-    // if(rec===true){
-    //   console.log('rushan shod');
-    //
-    //   document.getElementById("rec").checked= true;
-    // }
-    // else{
-    //   document.getElementById("rec").checked= false;
-    //   console.log('khamush shod');
-    //
-    //
-    // }
   }
 
   handleClean() {

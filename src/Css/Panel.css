@@ -84,3 +84,17 @@
 .clean-button:active {
   color: #47d147;
   background-color: #47d147; }
+
+.rec-off, .rec-on {
+  width: auto;
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 4px;
+  background-color: #66ffff;
+  box-shadow: 0 5px 5px #66ccff , 0 5px 10px #0000ff;
+  outline: none;
+  margin-left: 5px; }
+
+.rec-on {
+  background-color: #ff1a1a;
+  box-shadow: 0 5px 5px #ff1a1a , 0 5px 10px #0000ff; }

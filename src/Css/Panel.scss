@@ -15,13 +15,18 @@
   animation-name: example;
   animation-duration: 4s;
 }
-.panel-close{
-  display: none;
 
+.panel-close {
+  display: none;
 }
 @-webkit-keyframes example {
-    from {background-color: #ffffff;}
-    to {background-color: #000066;}
+  from {
+    background-color: #ffffff;
+  }
+
+  to {
+    background-color: #000066;
+  }
 }
 
 .panel-screen {
@@ -37,7 +42,7 @@
     font-size: 23px;
     font-weight: bold;
     font-style: oblique;
-    color:#000066
+    color: #000066;
   }
 }
 
@@ -57,11 +62,11 @@
   }
 }
 
-.checkbox{
+.checkbox {
   display: flex;
   flex-direction: column;
   margin-right: 10px;
-  margin-top: 10px
+  margin-top: 10px;
 }
 
 .result-button {
@@ -99,10 +104,26 @@
 
 .clean-button:active {
   color: #47d147;
-  background-color: #47d147
-
+  background-color: #47d147;
 }
 
-.refine-button{
+.refine-button {
   @extend .result-button;
+}
+
+.rec-off {
+  width: auto;
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 4px;
+  background-color: #66ffff;
+  box-shadow: 0 5px 5px #66ccff , 0 5px 10px #0000ff;
+  outline: none;
+  margin-left: 5px
+}
+
+.rec-on {
+  @extend .rec-off;
+  background-color: #ff1a1a;
+  box-shadow: 0 5px 5px #ff1a1a , 0 5px 10px #0000ff;
 }

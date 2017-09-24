@@ -10,18 +10,15 @@
   padding: 4px;
   background-color: #66ffff;
   box-shadow: 0 5px 5px  #66ccff , 0 5px 10px  #0000ff;
-
-}
-
-.Button:hover {
-  background-color: #bf00ff;
-  border: 2px solid white;
-  color: #ffffff;
-}
-
-.Button:active {
-  color: #ffff4d;
-  padding: 0;
-  background-color: inherit;
-  font-size: 1.5em
+  &:hover{
+    background-color: #bf00ff;
+    border: 2px solid white;
+    color: #ffffff;
+  }
+  &:active{
+    color: #ffff4d;
+    padding: 0;
+    background-color: inherit;
+    font-size: 1.5em
+  }
 }
