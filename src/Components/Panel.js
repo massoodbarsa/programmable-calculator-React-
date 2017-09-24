@@ -4,7 +4,6 @@ import '../Css/Panel.css';
 import * as PanelHandler from '../Actions/PanelHandler'
 
 
-
 class Panel extends Component {
 
   componentWillMount() {
@@ -18,11 +17,13 @@ class Panel extends Component {
   }
   render() {
 
-  const {programOpen}=store.state
+  const {programOpen,rec}=store.state
+
   let clas='panel-close'
    if(programOpen===true){
       clas='panel-open'
    }
+
     return (
       <div className={`${clas}`}>
 
@@ -49,14 +50,11 @@ class Panel extends Component {
 
                   <label>
                      <input
+                       id='rec'
                        type='checkbox'
                        ref='rec'
-
                        unchecked
                        onClick={this.handleRec.bind(this)}
-
-
-
                      />
                      <span>Rec</span>
                   </label>
@@ -70,12 +68,10 @@ class Panel extends Component {
                onClick={()=>PanelHandler.refinePanel()}
             />
 
-
-
             <input
                className='clean-button'
                type='button'
-               value='Clean'
+               value='Clear'
               //  onClick={()=>PanelHandler.panelHandle('clean')}
               onClick={this.handleClean.bind(this)}
             />
@@ -90,43 +86,35 @@ class Panel extends Component {
       </div>
     )
   }
-/*
-now its add everything to show later we put something
-later when i press button de result has to be on show
-*/
-  //  handleResult() {
-  //    const {panel,show} = store.state
-  //    var x = document.getElementById("myTextarea").value;
-  //    let newShow = Number(x)
-  //   panel.push(newShow)
-  //    store.setState({
-  //      panel,
-  //      // shows the format of every line its like : \n34
-  //     //  panel:x,
-  //      show: newShow.toString()
-  //    })
-  //  }
 
   handleRec(){
-    console.log(this.refs.rec.checked);
     if(this.refs.rec.checked===true){
-
       store.setState({
         rec:true
       })
-    }
-    else {
+    }else {
       store.setState({
         rec:false
       })
     }
-  }
 
+    // if(rec===true){
+    //   console.log('rushan shod');
+    //
+    //   document.getElementById("rec").checked= true;
+    // }
+    // else{
+    //   document.getElementById("rec").checked= false;
+    //   console.log('khamush shod');
+    //
+    //
+    // }
+  }
 
   handleClean() {
     document.getElementById("myTextarea").value = '';
     store.setState({
-      panel: ''
+      panel:[]
     })
   }
 }

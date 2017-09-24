@@ -38,6 +38,7 @@ export default class Keyset extends React.Component{
                      label='CLR'
                      value={keyCode.CLR}
                   />
+
                  </div>
                   <OperationalButtons
                      label='√x'
@@ -183,7 +184,6 @@ export default class Keyset extends React.Component{
                      label='.'
                      value={keyCode.DOT}
                   />
-
                   <OperationalButtons
                      label='π'
                      value={keyCode.PI}

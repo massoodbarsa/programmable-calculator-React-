@@ -1,7 +1,7 @@
 export default {
   stack: [],
   show: '',
-  str: [],
+  str: '',
   arc: false,
   panel: [],
   programOpen: true,

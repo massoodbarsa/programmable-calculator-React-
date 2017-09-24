@@ -3,12 +3,12 @@ import Panel from '../Components/Panel'
 import * as keyCode from '../Components/keyCodes'
 import * as MainOperations from './MainOperations'
 
-//handle everythin from type in the panel to button result or refine
+//handle everything from type in the panel to button result or refine
 export function handlePanel() {
 
   const {
     panel,
-    keyCode
+    keyCode,
   } = store.state
 
   let x = document.getElementById("myTextarea").value.toLowerCase();
@@ -56,43 +56,22 @@ export function refinePanel() {
 export function handleResult() {
 
   handlePanel()
-
+  store.setState({
+    rec:false
+  })
   const {panel,show,stack,rec} = store.state
 
   let newPanel = panel
   let newStack = stack
   let newShow  = show
 
-
-
-  newPanel.map(index => {
-//if panel is number
-    if (Number.isInteger(parseInt(index))) {
-      newStack.push(index) //add to stack
-
-      if(stack.length>3){
-        newStack.pop()
-
-        store.setState({
-          stack:newStack,
-        })
-      }
-    }else{ //call operational function
-      
-      index=index.toString()
-      MainOperations.Operational(index)
-      if(stack.length-1 >=2){//if 3 digit do operator*2
-        MainOperations.Operational(index)
-        console.log(index);
-
-      }
-
-
+ for (let i = 0; i < newPanel.length; i++) {
+    if(Number.isInteger(parseInt(newPanel[i]))){
+          newStack.push(newPanel[i]) //add to stack
+    }else {
+      MainOperations.Operational(newPanel[i])
     }
-
-  })
-
-  // store.setState({
-  //   stack
-  // })
+    newStack=store.state.stack
+ }
+ 
 }

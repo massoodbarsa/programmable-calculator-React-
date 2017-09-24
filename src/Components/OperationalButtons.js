@@ -4,16 +4,12 @@ import '../Css/Buttons.css'
 import * as MainOperations from '../Actions/MainOperations'
 
 
-
 export default class OperationalButtons extends React.Component{
-
 
   static propTypes = {
     label: PropTypes.string,
     value:PropTypes.string
   }
-
-
 
   render(){
 
@@ -27,6 +23,4 @@ export default class OperationalButtons extends React.Component{
       </div>
     )
   }
-
-
 }

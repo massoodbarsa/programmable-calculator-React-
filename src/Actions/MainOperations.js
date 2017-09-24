@@ -1,14 +1,19 @@
 import store from '../store';
 import degrees from 'radians-degrees';
 import radians from 'degrees-radians';
+import Panel from '../Components/Panel'
+
 import * as keyCode from '../Components/keyCodes'
 
 
 
 export function Countable(Digit){
 
-  const {show} = store.state
+  const {show,rec,panel} = store.state
   let newShow = show
+  let newPanel=panel
+
+
 
       switch (Digit) {
     case keyCode.D0:
@@ -25,28 +30,10 @@ export function Countable(Digit){
     case keyCode.PI:
 
 
-
-  // //has to be fixed.first click gives 'pi'
-      // if (Digit === keyCode.PI) {
-      //   console.log('selaaam');
-      //   newShow=Math.PI
-      //
-      //
-      //   store.setState({
-      //     show: newShow.toString()
-      //   })
-      //
-      //   if (show !== '')
-      //     return
-      // }
-  //
-
       if (Digit === '.') {
         if (show.includes('.')) {
           return
         }
-      //  newShow = show === '' ? '0' + String(Digit) : '0'+'.'+show + Digit
-
       }
 
 
@@ -70,16 +57,38 @@ export function Countable(Digit){
 
 
 export function Operational(operator) {
-  const {stack,show,str,arc,panel } = store.state
+  const {stack,show,str,arc,panel,rec } = store.state
   let newstack = [...stack]
   let newShow = show
   let newStr=str
   let newPanel=[...panel]
+// click result push operator again and again to panel ...error
+  if (rec) {
+    if (operator === keyCode.ENTER ) {
+      newPanel.push(newShow)
+    }else if ( operator === keyCode.CLR) {
+      
+    }
+    else{
+      newPanel.push(newShow)
+      newPanel.push(operator)
+    }
+    newPanel.map(index => {
+      document.getElementById("myTextarea").value +='\n'+ index +'\n';
+    //  newPanel=store.state.panel
+    })
+
+ }
+
+ // if (rec) {
+ //
+ // }
+
+
 
   if(operator===keyCode.PI){
    newShow=Math.PI
   }
-
 
 
   if (newShow !== '') {
@@ -127,22 +136,18 @@ export function Operational(operator) {
       })
     }
     return
-
   }
-
 
 
   if (newstack.length > 1) {
 
     switch (operator) {
       case keyCode.ADD:
-        console.log('add zede shod');
         newstack[newstack.length - 2] = Number(newstack[newstack.length - 2] )+ Number(newstack[newstack.length - 1])
         newstack.pop()
         break;
 
       case keyCode.SUB:
-      console.log('menha ham zede shod');
 
         newstack[newstack.length - 2] = newstack[newstack.length - 2] - newstack[newstack.length - 1]
         newstack.pop()
@@ -218,11 +223,11 @@ export function Operational(operator) {
           break;
 
         case keyCode.STO:
-          newStr = newstack[0]
+          newStr=newstack[0]
           break;
 
         case keyCode.RCL:
-          newstack.push(Number(newStr))
+          newstack.push(str)
           break;
 
         case keyCode.CLX:
@@ -236,7 +241,6 @@ export function Operational(operator) {
         case keyCode.CLR:
           newstack = []
           newShow = ''
-
           break;
 
         case keyCode.CHS:
@@ -311,7 +315,6 @@ export function Operational(operator) {
     }
 
   }
-
 
   store.setState({
     stack: newstack,
