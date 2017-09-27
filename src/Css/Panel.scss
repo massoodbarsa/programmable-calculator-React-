@@ -80,13 +80,15 @@
   border: 2px solid #ffffff;
   margin: 2px;
   transition-duration: 0.1s;
-  &:hover{
+
+  &:hover {
     cursor: grabbing;
     outline: none;
     box-shadow: 0 5px 10px 2px #ffffff,0 5px 20px 0 #0000ff;
     transition-duration: 0.7s;
   }
-  &:active{
+
+  &:active {
     background-color: #0000ff;
     font-weight: bold;
     color: #ffff00;
@@ -111,21 +113,25 @@
 }
 
 .rec-off {
+  color:#e6e6e6;
   width: auto;
   border-radius: 5px;
   font-size: 18px;
   padding: 4px;
-  background-color: #66ffff;
+  background-color: #660000;
   box-shadow: 0 5px 5px #66ccff , 0 5px 10px #0000ff;
   outline: none;
   margin-left: 5px;
-  &:hover{
-    cursor:crosshair;
+
+  &:hover {
+    cursor: crosshair;
   }
 }
 
 .rec-on {
   @extend .rec-off;
   background-color: #ff1a1a;
-  box-shadow: 0 5px 5px #ff1a1a , 0 5px 10px #0000ff;
+  box-shadow: 0 5px 5px #ff9999 , 0 5px 10px #ffff33;
+  color:#ffff33;
+
 }

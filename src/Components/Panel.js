@@ -17,7 +17,7 @@ class Panel extends Component {
   }
   render() {
 
-  const {programOpen,rec}=store.state
+  const {programOpen}=store.state
 //open and close panel
   let clas='panel-close'
    if(programOpen===true){
@@ -35,7 +35,7 @@ class Panel extends Component {
           <div className='panel-screen'>
             <textarea
                id='myTextarea'
-               placeholder='Enter tour program here'
+               placeholder='Enter your program here'
                required
                autoFocus
             >

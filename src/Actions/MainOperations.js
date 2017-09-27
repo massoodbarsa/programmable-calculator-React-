@@ -1,19 +1,13 @@
 import store from '../store';
 import degrees from 'radians-degrees';
 import radians from 'degrees-radians';
-import Panel from '../Components/Panel'
 
 import * as keyCode from '../Components/keyCodes'
 
-
-
 export function Countable(Digit){
 
-  const {show,rec,panel} = store.state
+  const {show} = store.state
   let newShow = show
-  let newPanel=panel
-
-
 
       switch (Digit) {
     case keyCode.D0:
@@ -67,7 +61,7 @@ export function Operational(operator) {
     if (operator === keyCode.ENTER ) {
       newPanel.push(newShow)
     }else if ( operator === keyCode.CLR) {
-      
+
     }
     else{
       newPanel.push(newShow)
@@ -75,15 +69,8 @@ export function Operational(operator) {
     }
     newPanel.map(index => {
       document.getElementById("myTextarea").value +='\n'+ index +'\n';
-    //  newPanel=store.state.panel
     })
-
- }
-
- // if (rec) {
- //
- // }
-
+  }
 
 
   if(operator===keyCode.PI){
@@ -101,7 +88,7 @@ export function Operational(operator) {
       newstack.pop(newstack[3])
     }
 
-    if (show == '.') {
+    if (show === '.') {
 //any click do not allows '.' in stack
       newstack[0] = 0
 
