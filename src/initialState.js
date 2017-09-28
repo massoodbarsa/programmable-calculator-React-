@@ -4,7 +4,7 @@ export default {
   str: '',
   arc: false,
   panel: [],
-  programOpen: true,
+  programOpen: false,
   rec:false,
   keyCode: [
     'acos',

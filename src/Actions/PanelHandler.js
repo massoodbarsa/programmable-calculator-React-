@@ -1,15 +1,11 @@
 import store from '../store';
-import Panel from '../Components/Panel'
-import * as keyCode from '../Components/keyCodes'
+// import * as keyCode from '../Components/keyCodes'
 import * as MainOperations from './MainOperations'
 
 //handle everything from type in the panel to button result or refine
 export function handlePanel() {
 
-  const {
-    panel,
-    keyCode,
-  } = store.state
+  const {keyCode} = store.state
 
   let x = document.getElementById("myTextarea").value.toLowerCase();
   let newPanel = []
@@ -31,7 +27,6 @@ export function handlePanel() {
     }
   })
   console.log(newPanel);
-  //panel calculation
 
   store.setState({
     panel: newPanel
@@ -59,11 +54,10 @@ export function handleResult() {
   store.setState({
     rec:false
   })
-  const {panel,show,stack,rec} = store.state
+  const {panel,stack} = store.state
 
   let newPanel = panel
   let newStack = stack
-  let newShow  = show
 
  for (let i = 0; i < newPanel.length; i++) {
     if(Number.isInteger(parseInt(newPanel[i]))){
@@ -73,5 +67,5 @@ export function handleResult() {
     }
     newStack=store.state.stack
  }
- 
+
 }

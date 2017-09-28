@@ -7,10 +7,10 @@ import '../Css/Rows.css'
 export default class Buttons extends React.Component{
 
 
-  // static propTypes = {
-  //   row: PropTypes.number,
-  //   value:PropTypes.number,
-  // }
+  static propTypes = {
+    row: PropTypes.number,
+    value:PropTypes.number,
+  }
 
 
 

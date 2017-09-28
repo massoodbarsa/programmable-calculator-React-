@@ -54,9 +54,16 @@ class Screen extends Component {
     );
   }
   handleProgramPanel(){
-    store.setState({
-      programOpen:true
-    })
+    if (store.state.programOpen) {
+      store.setState({
+        programOpen:false
+      })
+    } else {
+      store.setState({
+        programOpen:true
+      })
+    }
+
   }
 
 }
