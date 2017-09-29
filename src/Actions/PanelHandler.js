@@ -36,6 +36,10 @@ export function handlePanel() {
 //click on refine button to refine the panel
 export function refinePanel() {
   handlePanel()
+  store.setState({
+    rec:false
+  })
+
   const {
     panel
   } = store.state
