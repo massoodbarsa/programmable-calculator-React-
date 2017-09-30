@@ -38,6 +38,7 @@ class Panel extends Component {
                placeholder='Enter your program here'
                required
                autoFocus
+               
             >
             </textarea>
           </div>

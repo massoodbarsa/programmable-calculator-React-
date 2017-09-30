@@ -36,7 +36,8 @@
     font-size: 23px;
     font-weight: bold;
     font-style: oblique;
-    color: #000066; }
+    color: #000066;
+    resize: none; }
 
 .panel-body {
   display: flex;
