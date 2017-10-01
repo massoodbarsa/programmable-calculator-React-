@@ -45,7 +45,7 @@ export default class Git extends React.Component{
 
     return(
       <div className={`${clas}`}>
-      <div className={"links"}>
+      <div className="links">
              {links}
       </div>
       </div>
@@ -60,6 +60,7 @@ export default class Git extends React.Component{
      .then(response => response.json())
      .then(data => data.forEach(index => {
        newGitlinks.push(index)
+
 
      }))
  }

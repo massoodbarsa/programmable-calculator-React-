@@ -1,5 +1,5 @@
 import React from 'react'
-import '../Css/Github.css'
+import '../Css/GitLinks.css'
 import store from '../store';
 import {panel} from '.'
 
@@ -52,7 +52,7 @@ export default class GitLinks extends React.Component{
            {
                if (xmlhttp.readyState==4 && xmlhttp.status==200)
                {
-                  
+
                   document.getElementById("myTextarea").value=xmlhttp.responseText
                }
            }
