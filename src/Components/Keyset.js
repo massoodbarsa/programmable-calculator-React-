@@ -8,7 +8,6 @@ export default class Keyset extends React.Component{
 
   render(){
 
-
     return(
       <div className ='Keyset'>
 
@@ -193,9 +192,5 @@ export default class Keyset extends React.Component{
       </div>
     )
   }
-
-
-
-
 
 }

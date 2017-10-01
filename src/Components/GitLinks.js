@@ -1,8 +1,6 @@
 import React from 'react'
 import '../Css/GitLinks.css'
 import store from '../store';
-import {panel} from '.'
-
 
 
 export default class GitLinks extends React.Component{
@@ -21,43 +19,29 @@ export default class GitLinks extends React.Component{
 
     return(
       <div>
-
          <button className ='GitLinks'
-
-           onClick = {this.handelGitLinks.bind(this)}>
-           {this.props.item.name}
-
+             onClick = {this.handelGitLinks.bind(this)}>
+             {this.props.item.name}
          </button>
-
       </div>
 
     )
   }
 
- handelGitLinks(){
+  handelGitLinks() {
 
-   console.log(this.props.item.download_url);
-   let xmlhttp = null;
+    console.log(this.props.item.download_url);
+    let xmlhttp = null;
 
+    xmlhttp = new XMLHttpRequest();
 
-          //  if (window.XMLHttpRequest)
-          //  {// code for IE7+, Firefox, Chrome, Opera, Safari, SeaMonkey
-               xmlhttp=new XMLHttpRequest();
-          //  }
-          //  else
-          //  {// code for IE6, IE5
-          //      xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-          //  }
-           xmlhttp.onreadystatechange=function()
-           {
-               if (xmlhttp.readyState==4 && xmlhttp.status==200)
-               {
-
-                  document.getElementById("myTextarea").value=xmlhttp.responseText
-               }
-           }
-           xmlhttp.open("GET", this.props.item.download_url, false);
-           xmlhttp.send();
- }
+    xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+        document.getElementById("myTextarea").value = xmlhttp.responseText
+      }
+    }
+    xmlhttp.open("GET", this.props.item.download_url, false);
+    xmlhttp.send();
+  }
 
 }

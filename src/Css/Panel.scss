@@ -63,8 +63,6 @@
   }
 }
 
-
-
 .result-button {
   box-sizing: border-box;
   flex-grow: 1;
@@ -116,13 +114,14 @@
   margin-top: 10px;
 }
 
-.git-button{
-  @extend .result-button  ;
+.git-button {
+  @extend .result-button;
+  padding: 4px;
 }
+
 .rec-off {
   flex-grow: 3;
-
-  color:#e6e6e6;
+  color: #e6e6e6;
   width: auto;
   border-radius: 5px;
   font-size: 18px;
@@ -141,6 +140,5 @@
   @extend .rec-off;
   background-color: #ff1a1a;
   box-shadow: 0 5px 5px #ff9999 , 0 5px 10px #ffff33;
-  color:#ffff33;
-
+  color: #ffff33;
 }

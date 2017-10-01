@@ -86,6 +86,9 @@
   margin-right: 10px;
   margin-top: 10px; }
 
+.git-button {
+  padding: 4px; }
+
 .rec-off, .rec-on {
   flex-grow: 3;
   color: #e6e6e6;

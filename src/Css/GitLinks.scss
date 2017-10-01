@@ -1,32 +1,11 @@
+@import "Panel.scss";
+
+
 .GitLinks{
-  box-sizing: border-box;
-  background-color: #ffccff;
-  border-radius: 10px;
-  font-size: 20px;
-  font-weight: bold;
+  @extend .result-button;
+
   padding: 6px;
-  border: 2px solid #ffffff;
   margin: 10px;
-  transition-duration: 0.1s;
-  outline: none;
   overflow: hidden;
   text-overflow:clip;
-
-
-  &:hover {
-    cursor: grabbing;
-    outline: none;
-    box-shadow: 0 5px 10px 2px #ffffff,0 5px 20px 0 #0000ff;
-    transition-duration: 0.7s;
-  }
-
-  &:active {
-    background-color: #0000ff;
-    font-weight: bold;
-    color: #ffff00;
-    outline: none;
-    transition-duration: 0.1s;
-    border: 2px solid #0000ff;
-    box-shadow: 0 5px 50px 0 #0000ff,0 5px 20px 0 #ffffff;
-  }
 }

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import store from '../store';
 import '../Css/Panel.css';
 import * as PanelHandler from '../Actions/PanelHandler'
-import {Git} from '.'
 
 
 class Panel extends Component {
@@ -80,7 +79,6 @@ class Panel extends Component {
                className='clean-button'
                type='button'
                value='Clear'
-              //  onClick={()=>PanelHandler.panelHandle('clean')}
               onClick={this.handleClear.bind(this)}
             />
 
@@ -116,19 +114,18 @@ class Panel extends Component {
 
 
 //open git panel
-handleGit(){
+  handleGit(){
 
-    if (store.state.git) {
-      store.setState({
-        git:false
-      })
-    } else {
-      store.setState({
-        git:true
-      })
-    }
-
- }
+      if (store.state.git) {
+        store.setState({
+          git:false
+        })
+      } else {
+        store.setState({
+          git:true
+        })
+      }
+   }
 
 }
 

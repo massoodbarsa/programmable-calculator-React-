@@ -4,7 +4,6 @@ import '../Css/Buttons.css'
 import * as MainOperations from '../Actions/MainOperations'
 
 
-
 export default class CountableButtons extends React.Component{
 
 
@@ -12,8 +11,6 @@ export default class CountableButtons extends React.Component{
     label: PropTypes.string,
     value: PropTypes.string,
   }
-
-
 
   render(){
 
@@ -28,6 +25,5 @@ export default class CountableButtons extends React.Component{
       </div>
     )
   }
-
 
 }

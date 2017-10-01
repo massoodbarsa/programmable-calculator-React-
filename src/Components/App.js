@@ -20,12 +20,10 @@ class App extends Component {
     return (
       <div className='Container'>
 
-
         <div className="App">
           <Screen/>
           <Keyset/>
         </div>
-
 
         <div className="Panel">
           <Panel/>

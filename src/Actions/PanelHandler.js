@@ -1,10 +1,14 @@
 import store from '../store';
-import{Aliases} from '../Components/index.js'
+import {
+  Aliases
+} from '../Components/index.js'
 import * as MainOperations from './MainOperations'
 
 //handle everything from type in the panel to button result or refine
 export function handlePanel() {
-  const {keyCode} = store.state
+  const {
+    keyCode
+  } = store.state
 
   let x = document.getElementById("myTextarea").value.toLowerCase();
   let newPanel = []
@@ -42,10 +46,12 @@ export function refinePanel() {
 
   handlePanel()
   store.setState({
-    rec:false
+    rec: false
   })
 
-  const {panel} = store.state
+  const {
+    panel
+  } = store.state
 
   let newPanel = panel
   document.getElementById("myTextarea").value = ''
@@ -61,20 +67,23 @@ export function handleResult() {
 
   handlePanel()
   store.setState({
-    rec:false
+    rec: false
   })
-  const {panel,stack} = store.state
+  const {
+    panel,
+    stack
+  } = store.state
 
   let newPanel = panel
   let newStack = stack
 
- for (let i = 0; i < newPanel.length; i++) {
-    if(Number.isInteger(parseInt(newPanel[i]))){
-          newStack.push(newPanel[i]) //add to stack
-    }else {
+  for (let i = 0; i < newPanel.length; i++) {
+    if (Number.isInteger(parseInt(newPanel[i]))) {
+      newStack.push(newPanel[i]) //add to stack
+    } else {
       MainOperations.Operational(newPanel[i])
     }
-    newStack=store.state.stack
- }
+    newStack = store.state.stack
+  }
 
 }

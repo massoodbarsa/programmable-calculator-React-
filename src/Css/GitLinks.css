@@ -1,22 +1,73 @@
-.GitLinks {
+.panel-open {
   box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
+  flex-direction: column;
+  flex-wrap: initial;
+  background-color: #000066;
+  margin-top: 130px;
+  width: 300px;
+  height: 600px;
+  position: relative;
+  border-left: 3px solid white;
+  border-radius: 10px;
+  box-shadow: 0 5px 40px #0000ff,1px 1px 10px #ffffff;
+  animation-name: example;
+  animation-duration: 4s; }
+
+.panel-close {
+  display: none; }
+
+@-webkit-keyframes example {
+  from {
+    background-color: #ffffff; }
+  to {
+    background-color: #000066; } }
+
+.panel-screen {
+  display: flex;
+  flex-grow: 5;
+  margin: 5px; }
+  .panel-screen textarea {
+    flex-grow: 2;
+    border-radius: 7px;
+    padding: 15px;
+    background-color: #ffffff;
+    font-size: 23px;
+    font-weight: bold;
+    font-style: oblique;
+    color: #000066;
+    resize: none; }
+
+.panel-body {
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+  padding: 5px; }
+  .panel-body label {
+    flex-grow: 1;
+    color: white; }
+  .panel-body span:hover {
+    box-shadow: 0 5px 50px 0 #0000ff,0 5px 20px 0 #ffffff; }
+
+.result-button, .clean-button, .refine-button, .git-button, .GitLinks {
+  box-sizing: border-box;
+  flex-grow: 1;
   background-color: #ffccff;
   border-radius: 10px;
   font-size: 20px;
   font-weight: bold;
-  padding: 6px;
+  padding: 2px;
   border: 2px solid #ffffff;
-  margin: 10px;
+  margin: 2px;
   transition-duration: 0.1s;
-  outline: none;
-  overflow: hidden;
-  text-overflow: clip; }
-  .GitLinks:hover {
+  outline: none; }
+  .result-button:hover, .clean-button:hover, .refine-button:hover, .git-button:hover, .GitLinks:hover {
     cursor: grabbing;
     outline: none;
     box-shadow: 0 5px 10px 2px #ffffff,0 5px 20px 0 #0000ff;
     transition-duration: 0.7s; }
-  .GitLinks:active {
+  .result-button:active, .clean-button:active, .refine-button:active, .git-button:active, .GitLinks:active {
     background-color: #0000ff;
     font-weight: bold;
     color: #ffff00;
@@ -24,3 +75,41 @@
     transition-duration: 0.1s;
     border: 2px solid #0000ff;
     box-shadow: 0 5px 50px 0 #0000ff,0 5px 20px 0 #ffffff; }
+
+.clean-button:active {
+  color: #47d147;
+  background-color: #47d147; }
+
+.small-keys {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  margin-top: 10px; }
+
+.git-button {
+  padding: 4px; }
+
+.rec-off, .rec-on {
+  flex-grow: 3;
+  color: #e6e6e6;
+  width: auto;
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 4px;
+  background-color: #660000;
+  box-shadow: 0 5px 5px #66ccff , 0 5px 10px #0000ff;
+  outline: none;
+  margin-left: 5px; }
+  .rec-off:hover, .rec-on:hover {
+    cursor: crosshair; }
+
+.rec-on {
+  background-color: #ff1a1a;
+  box-shadow: 0 5px 5px #ff9999 , 0 5px 10px #ffff33;
+  color: #ffff33; }
+
+.GitLinks {
+  padding: 6px;
+  margin: 10px;
+  overflow: hidden;
+  text-overflow: clip; }

@@ -4,12 +4,14 @@ import radians from 'degrees-radians';
 
 import * as keyCode from '../Components/keyCodes'
 
-export function Countable(Digit){
+export function Countable(Digit) {
 
-  const {show} = store.state
+  const {
+    show
+  } = store.state
   let newShow = show
 
-      switch (Digit) {
+  switch (Digit) {
     case keyCode.D0:
     case keyCode.D1:
     case keyCode.D2:
@@ -38,12 +40,10 @@ export function Countable(Digit){
         newShow = show === '' ? String(Digit) : show + Digit
       }
 
-/////////
 
       store.setState({
         show: newShow
       })
-
 
   }
 }
@@ -51,45 +51,51 @@ export function Countable(Digit){
 
 
 export function Operational(operator) {
-  const {stack,show,str,arc,panel,rec } = store.state
+  const {
+    stack,
+    show,
+    str,
+    arc,
+    panel,
+    rec
+  } = store.state
   let newstack = [...stack]
   let newShow = show
-  let newStr=str
-  let newPanel=[...panel]
-// click result push operator again and again to panel ...error
+  let newStr = str
+  let newPanel = [...panel]
+  // click result push operator again and again to panel ...error
   if (rec) {
-    if (operator === keyCode.ENTER ) {
+    if (operator === keyCode.ENTER) {
       newPanel.push(newShow)
-    }else if ( operator === keyCode.CLR) {
+    } else if (operator === keyCode.CLR) {
 
-    }
-    else{
-    //  newPanel.push(newShow)
+    } else {
+  //  newPanel.push(newShow)
       newPanel.push(operator)
     }
     newPanel.map(index => {
-      document.getElementById("myTextarea").value +=index.trim() +'\n';
+      document.getElementById("myTextarea").value += index.trim() + '\n';
     })
   }
 
 
-  if(operator===keyCode.PI){
-   newShow=Math.PI
+  if (operator === keyCode.PI) {
+    newShow = Math.PI
   }
 
 
   if (newShow !== '') {
-//any click add the newShow to the stack
+  //any click add the newShow to the stack
     newstack.push(newShow)
     newShow = ''
-//fix it later
-//do not allow the length of stack exceeds 3
+  //fix it later
+  //do not allow the length of stack exceeds 3
     if (newstack.length > 3) {
       newstack.pop(newstack[3])
     }
 
     if (show === '.') {
-//any click do not allows '.' in stack
+  //any click do not allows '.' in stack
       newstack[0] = 0
 
     }
@@ -99,19 +105,19 @@ export function Operational(operator) {
 
   if (operator === keyCode.EEX) {
     let changable = "0"
-//to prevent add an exponent to the
-//priviuos  by clicking on eex again
-    if (show.includes("e")||show.length>=3) {
+    //to prevent add an exponent to the
+    //priviuos  by clicking on eex again
+    if (show.includes("e") || show.length >= 3) {
       return
     }
 
-    if (show === ''){
-      newShow="1" + 'e' + '+' + changable
+    if (show === '') {
+      newShow = "1" + 'e' + '+' + changable
       store.setState({
         show: newShow
       })
     } else {
-      newShow=show + 'e' + '+' + changable
+      newShow = show + 'e' + '+' + changable
       store.setState({
         show: newShow
       })
@@ -130,7 +136,7 @@ export function Operational(operator) {
 
     switch (operator) {
       case keyCode.ADD:
-        newstack[newstack.length - 2] = Number(newstack[newstack.length - 2] )+ Number(newstack[newstack.length - 1])
+        newstack[newstack.length - 2] = Number(newstack[newstack.length - 2]) + Number(newstack[newstack.length - 1])
         newstack.pop()
         break;
 
@@ -210,7 +216,7 @@ export function Operational(operator) {
           break;
 
         case keyCode.STO:
-          newStr=newstack[0]
+          newStr = newstack[0]
           break;
 
         case keyCode.RCL:
@@ -218,7 +224,7 @@ export function Operational(operator) {
           break;
 
         case keyCode.CLX:
-          if (newstack.length>=1&&show==='') {
+          if (newstack.length >= 1 && show === '') {
             return
           }
           newstack.pop()
@@ -233,24 +239,23 @@ export function Operational(operator) {
         case keyCode.CHS:
           let plusIndex = show.indexOf('+')
           let minIndex = show.indexOf('-')
-        if (show.includes('e')) {
+          if (show.includes('e')) {
             if (show.includes('+')) {
               newShow = show.replace(show.charAt(plusIndex), '-');
             } else if (show.includes('-')) {
               newShow = show.replace(show.charAt(minIndex), '+');
               newstack[newstack.length - 1] = -(newstack[newstack.length - 1])
             }
-          newstack.pop()
-        }
-        else {
-           newstack[newstack.length - 1] = -(newstack[newstack.length - 1])
-        }
+            newstack.pop()
+          } else {
+            newstack[newstack.length - 1] = -(newstack[newstack.length - 1])
+          }
           break;
 
 
         case keyCode.ENTER:
-          if(show.includes('e')){
-            newstack[0]=Number(newstack[0])
+          if (show.includes('e')) {
+            newstack[0] = Number(newstack[0])
             newShow = newstack[0].toString()
           }
           break;
@@ -309,4 +314,4 @@ export function Operational(operator) {
     str: newStr
   })
 
-  }
+}
