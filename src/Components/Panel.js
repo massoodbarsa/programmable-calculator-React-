@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import store from '../store';
 import '../Css/Panel.css';
 import * as PanelHandler from '../Actions/PanelHandler'
+import GoMarkGithub from 'react-icons/lib/go/mark-github'
+import FaEraser from 'react-icons/lib/fa/trash'
+import FaTrash from 'react-icons/lib/fa/recycle'
+
 
 
 class Panel extends Component {
@@ -48,14 +52,11 @@ class Panel extends Component {
 
               <div className='small-keys'>
 
-                  <label>
-                     <input
-                       className='git-button'
-                       type='button'
-                       value='Git'
-                       onClick={this.handleGit.bind(this)}
-                     />
-                  </label>
+
+                  <GoMarkGithub  className='git-button'
+
+                     onClick={this.handleGit.bind(this)}
+                  />
 
                   <label>
                      <input
@@ -67,20 +68,14 @@ class Panel extends Component {
                   </label>
               </div>
 
-
-            <input
-               className='refine-button'
-               type='button'
-               value='Refine'
+            <FaTrash  className='refine-button'
                onClick={()=>PanelHandler.refinePanel()}
             />
 
-            <input
-               className='clean-button'
-               type='button'
-               value='Clear'
-              onClick={this.handleClear.bind(this)}
+            <FaEraser  className='clean-button'
+            onClick={this.handleClear.bind(this)}
             />
+
 
             <input
                className='result-button'

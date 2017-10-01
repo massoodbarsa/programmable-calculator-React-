@@ -26,7 +26,7 @@
 
 .panel-screen {
   display: flex;
-  flex-grow: 5;
+  flex-grow: 10;
   margin: 5px; }
   .panel-screen textarea {
     flex-grow: 2;
@@ -76,9 +76,19 @@
     border: 2px solid #0000ff;
     box-shadow: 0 5px 50px 0 #0000ff,0 5px 20px 0 #ffffff; }
 
-.clean-button:active {
-  color: #47d147;
-  background-color: #47d147; }
+.clean-button {
+  height: 136px;
+  margin-bottom: -35px;
+  width: 50px; }
+  .clean-button:active {
+    color: red; }
+
+.refine-button {
+  height: 136px;
+  margin-bottom: -35px;
+  width: 50px; }
+  .refine-button:active {
+    color: #47d147; }
 
 .small-keys {
   display: flex;
@@ -87,10 +97,12 @@
   margin-top: 10px; }
 
 .git-button {
-  padding: 4px; }
+  padding: 4px;
+  width: 50px;
+  margin-bottom: 20px; }
 
 .rec-off, .rec-on {
-  flex-grow: 3;
+  flex-basis: auto;
   color: #e6e6e6;
   width: auto;
   border-radius: 5px;

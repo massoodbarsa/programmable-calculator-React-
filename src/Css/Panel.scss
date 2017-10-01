@@ -31,7 +31,7 @@
 
 .panel-screen {
   display: flex;
-  flex-grow: 5;
+  flex-grow: 10;
   margin: 5px;
 
   textarea {
@@ -96,15 +96,23 @@
 
 .clean-button {
   @extend .result-button;
+  height: 136px;
+  margin-bottom:-35px;
+  width: 50px;
+  &:active{
+      color: red;
+  }
 }
 
-.clean-button:active {
-  color: #47d147;
-  background-color: #47d147;
-}
 
 .refine-button {
   @extend .result-button;
+  height: 136px;
+  margin-bottom:-35px;
+  width: 50px;
+  &:active{
+      color: #47d147;
+  }
 }
 
 .small-keys {
@@ -117,10 +125,12 @@
 .git-button {
   @extend .result-button;
   padding: 4px;
+  width: 50px;
+  margin-bottom: 20px
 }
 
 .rec-off {
-  flex-grow: 3;
+  flex-basis: auto;
   color: #e6e6e6;
   width: auto;
   border-radius: 5px;
