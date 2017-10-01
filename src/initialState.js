@@ -6,7 +6,7 @@ export default {
   panel: [],
   programOpen: true,
   rec:false,
-  git:false,
+  git:true,
   gitlinks:[],
   keyCode: [
     'acos',

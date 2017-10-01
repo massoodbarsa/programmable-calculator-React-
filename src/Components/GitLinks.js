@@ -1,6 +1,7 @@
 import React from 'react'
 import '../Css/Github.css'
 import store from '../store';
+import {panel} from '.'
 
 
 
@@ -34,7 +35,29 @@ export default class GitLinks extends React.Component{
   }
 
  handelGitLinks(){
-   console.log('didi ridi ');
+
+   console.log(this.props.item.download_url);
+   let xmlhttp = null;
+
+
+          //  if (window.XMLHttpRequest)
+          //  {// code for IE7+, Firefox, Chrome, Opera, Safari, SeaMonkey
+               xmlhttp=new XMLHttpRequest();
+          //  }
+          //  else
+          //  {// code for IE6, IE5
+          //      xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+          //  }
+           xmlhttp.onreadystatechange=function()
+           {
+               if (xmlhttp.readyState==4 && xmlhttp.status==200)
+               {
+                  
+                  document.getElementById("myTextarea").value=xmlhttp.responseText
+               }
+           }
+           xmlhttp.open("GET", this.props.item.download_url, false);
+           xmlhttp.send();
  }
 
 }

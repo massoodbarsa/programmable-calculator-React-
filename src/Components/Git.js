@@ -23,7 +23,7 @@ export default class Git extends React.Component{
    this.ConnectToApi()
 
    const {gitlinks} = store.state
-   let newGitlinks = gitlinks
+   let newGitlinks  = gitlinks
 
     const links=newGitlinks.map((item,index)=>{
       return (

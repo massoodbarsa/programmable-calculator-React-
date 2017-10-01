@@ -115,7 +115,7 @@ class Panel extends Component {
   }
 
 
-//get git api
+//open git panel
 handleGit(){
 
     if (store.state.git) {
@@ -128,39 +128,7 @@ handleGit(){
       })
     }
 
-  // const {gitlinks} =store.state
-  // let newGitlinks = gitlinks
-  //
-  // fetch('https://api.github.com/repos/remarcmij/calculator-programs/contents/programs')
-  // .then(response=>response.json())
-  // .then(data=>data.forEach(index=>{
-  //  newGitlinks.push(index.download_url.toString())
-
-    //    document.getElementById("git-div").value +=index._links.html+'\n' ;
-
-    // store.state.gitlinks=[]
-  //   let name = index.name
-  //   let link = index._links.html
-  // store.setState({
-  //   gitlinks:{
-  //     name:index.name,
-  //     link:index._links.html
-  //   }
-  // })
-
-  // }))
-
-  // this.handleClear()
-
-
-  // newGit.map(link=>{
-  //   document.getElementById("myTextarea").value +=link+'\n' ;
-  //
-  // })
-  //  store.setState({
-  //    git:newGit
-  //  })
-}
+ }
 
 }
 
