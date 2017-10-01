@@ -64,11 +64,11 @@ export function Operational(operator) {
 
     }
     else{
-      newPanel.push(newShow)
+    //  newPanel.push(newShow)
       newPanel.push(operator)
     }
     newPanel.map(index => {
-      document.getElementById("myTextarea").value +='\n'+ index +'\n';
+      document.getElementById("myTextarea").value +=index.trim() +'\n';
     })
   }
 

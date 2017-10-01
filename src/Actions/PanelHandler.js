@@ -50,7 +50,7 @@ export function refinePanel() {
   let newPanel = panel
   document.getElementById("myTextarea").value = ''
   newPanel.map(index => {
-    document.getElementById("myTextarea").value += '\n' + index + '\n';
+    document.getElementById("myTextarea").value += index.trim() + '\n';
   })
 
 }

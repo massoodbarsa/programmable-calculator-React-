@@ -4,8 +4,10 @@ export default {
   str: '',
   arc: false,
   panel: [],
-  programOpen: false,
+  programOpen: true,
   rec:false,
+  git:false,
+  gitlinks:[],
   keyCode: [
     'acos',
     'add',

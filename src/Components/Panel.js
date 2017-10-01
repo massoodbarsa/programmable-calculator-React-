@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import store from '../store';
 import '../Css/Panel.css';
 import * as PanelHandler from '../Actions/PanelHandler'
+import {Git} from '.'
 
 
 class Panel extends Component {
@@ -15,6 +16,7 @@ class Panel extends Component {
   componentWillUnmount() {
     this.subscription.remove();
   }
+
   render() {
 
   const {programOpen}=store.state
@@ -38,20 +40,22 @@ class Panel extends Component {
                placeholder='Enter your program here'
                required
                autoFocus
-               
+
             >
             </textarea>
           </div>
 
           <div className='panel-body'>
 
-              <div className='checkbox'>
+              <div className='small-keys'>
+
                   <label>
                      <input
-                       type='checkbox'
-                       unchecked
+                       className='git-button'
+                       type='button'
+                       value='Git'
+                       onClick={this.handleGit.bind(this)}
                      />
-                     <span>Slow</span>
                   </label>
 
                   <label>
@@ -77,7 +81,7 @@ class Panel extends Component {
                type='button'
                value='Clear'
               //  onClick={()=>PanelHandler.panelHandle('clean')}
-              onClick={this.handleClean.bind(this)}
+              onClick={this.handleClear.bind(this)}
             />
 
             <input
@@ -102,13 +106,62 @@ class Panel extends Component {
       })
     }
   }
-
-  handleClean() {
+//clear the panel
+  handleClear() {
     document.getElementById("myTextarea").value = '';
     store.setState({
       panel:[]
     })
   }
+
+
+//get git api
+handleGit(){
+
+    if (store.state.git) {
+      store.setState({
+        git:false
+      })
+    } else {
+      store.setState({
+        git:true
+      })
+    }
+
+  // const {gitlinks} =store.state
+  // let newGitlinks = gitlinks
+  //
+  // fetch('https://api.github.com/repos/remarcmij/calculator-programs/contents/programs')
+  // .then(response=>response.json())
+  // .then(data=>data.forEach(index=>{
+  //  newGitlinks.push(index.download_url.toString())
+
+    //    document.getElementById("git-div").value +=index._links.html+'\n' ;
+
+    // store.state.gitlinks=[]
+  //   let name = index.name
+  //   let link = index._links.html
+  // store.setState({
+  //   gitlinks:{
+  //     name:index.name,
+  //     link:index._links.html
+  //   }
+  // })
+
+  // }))
+
+  // this.handleClear()
+
+
+  // newGit.map(link=>{
+  //   document.getElementById("myTextarea").value +=link+'\n' ;
+  //
+  // })
+  //  store.setState({
+  //    git:newGit
+  //  })
+}
+
 }
 
 export default Panel;

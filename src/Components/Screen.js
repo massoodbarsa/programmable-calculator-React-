@@ -36,15 +36,12 @@ class Screen extends Component {
                />
            </div>
           <Rows
-          //  stack={value}
             row={stack[stack.length-3]}
           />
           <Rows
-            //stack={stack}
             row={stack[stack.length-2]}
           />
           <Rows
-          //  stack={stack}
             row={stack[stack.length-1]}
           />
           <Rows

@@ -63,12 +63,7 @@
   }
 }
 
-.checkbox {
-  display: flex;
-  flex-direction: column;
-  margin-right: 10px;
-  margin-top: 10px;
-}
+
 
 .result-button {
   box-sizing: border-box;
@@ -81,6 +76,7 @@
   border: 2px solid #ffffff;
   margin: 2px;
   transition-duration: 0.1s;
+  outline: none;
 
   &:hover {
     cursor: grabbing;
@@ -113,7 +109,19 @@
   @extend .result-button;
 }
 
+.small-keys {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.git-button{
+  @extend .result-button  ;
+}
 .rec-off {
+  flex-grow: 3;
+
   color:#e6e6e6;
   width: auto;
   border-radius: 5px;

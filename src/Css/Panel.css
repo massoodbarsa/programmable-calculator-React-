@@ -50,13 +50,7 @@
   .panel-body span:hover {
     box-shadow: 0 5px 50px 0 #0000ff,0 5px 20px 0 #ffffff; }
 
-.checkbox {
-  display: flex;
-  flex-direction: column;
-  margin-right: 10px;
-  margin-top: 10px; }
-
-.result-button, .clean-button, .refine-button {
+.result-button, .clean-button, .refine-button, .git-button {
   box-sizing: border-box;
   flex-grow: 1;
   background-color: #ffccff;
@@ -66,13 +60,14 @@
   padding: 2px;
   border: 2px solid #ffffff;
   margin: 2px;
-  transition-duration: 0.1s; }
-  .result-button:hover, .clean-button:hover, .refine-button:hover {
+  transition-duration: 0.1s;
+  outline: none; }
+  .result-button:hover, .clean-button:hover, .refine-button:hover, .git-button:hover {
     cursor: grabbing;
     outline: none;
     box-shadow: 0 5px 10px 2px #ffffff,0 5px 20px 0 #0000ff;
     transition-duration: 0.7s; }
-  .result-button:active, .clean-button:active, .refine-button:active {
+  .result-button:active, .clean-button:active, .refine-button:active, .git-button:active {
     background-color: #0000ff;
     font-weight: bold;
     color: #ffff00;
@@ -85,7 +80,14 @@
   color: #47d147;
   background-color: #47d147; }
 
+.small-keys {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  margin-top: 10px; }
+
 .rec-off, .rec-on {
+  flex-grow: 3;
   color: #e6e6e6;
   width: auto;
   border-radius: 5px;

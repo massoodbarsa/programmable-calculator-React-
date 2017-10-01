@@ -1,0 +1,29 @@
+.github-open{
+  box-sizing: border-box;
+  //display: flex;
+  flex:initial;
+  flex-flow: column;
+  flex-direction: column;
+  flex-wrap: initial;
+  background-color: white;
+  margin-top: 130px;
+  height: 600px;
+  margin-bottom: 10px;
+  width: 300px;
+  position: relative;
+  border-left: 3px solid white;
+  border-radius: 10px;
+  box-shadow: 0 5px 40px #0000ff,1px 1px 10px #ffffff;
+  color: white
+  // animation-duration: 4s;
+}
+.github-close {
+   display: none;
+   background-color: red
+}
+
+.links{
+  display: block;
+  color: white
+
+}
