@@ -36,7 +36,7 @@ class Screen extends Component {
                  value='Open Panel'
 
                />
-              
+
            </div>
           <Rows
             row={stack[stack.length-3]}
@@ -56,7 +56,8 @@ class Screen extends Component {
   handleProgramPanel(){
     if (store.state.programOpen) {
       store.setState({
-        programOpen:false
+        programOpen:false,
+        git:false
       })
     } else {
       store.setState({

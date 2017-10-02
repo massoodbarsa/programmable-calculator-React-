@@ -5,6 +5,8 @@ import * as PanelHandler from '../Actions/PanelHandler'
 import GoMarkGithub from 'react-icons/lib/go/mark-github'
 import FaEraser from 'react-icons/lib/fa/trash'
 import FaTrash from 'react-icons/lib/fa/recycle'
+import MdFiberManualRecord from 'react-icons/lib/md/fiber-manual-record'
+
 
 
 
@@ -55,17 +57,15 @@ class Panel extends Component {
 
                   <GoMarkGithub  className='git-button'
 
-                     onClick={this.handleGit.bind(this)}
+                     onClick={this.handleGitButton.bind(this)}
                   />
 
-                  <label>
-                     <input
-                       className={`${recClassName}`}
-                       type='button'
-                       value='Rec'
-                       onClick={this.handleRec.bind(this)}
-                     />
-                  </label>
+                  <MdFiberManualRecord  className={`${recClassName}`}
+
+                     onClick={this.handleRec.bind(this)}
+                  />
+
+
               </div>
 
             <FaTrash  className='refine-button'
@@ -109,7 +109,7 @@ class Panel extends Component {
 
 
 //open git panel
-  handleGit(){
+  handleGitButton(){
 
       if (store.state.git) {
         store.setState({
@@ -120,6 +120,7 @@ class Panel extends Component {
           git:true
         })
       }
+
    }
 
 }

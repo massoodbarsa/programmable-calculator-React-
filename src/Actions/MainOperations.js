@@ -70,7 +70,7 @@ export function Operational(operator) {
     } else if (operator === keyCode.CLR) {
 
     } else {
-  //  newPanel.push(newShow)
+      newPanel.push(newShow)
       newPanel.push(operator)
     }
     newPanel.map(index => {

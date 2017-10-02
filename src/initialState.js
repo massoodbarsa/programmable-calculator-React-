@@ -4,9 +4,9 @@ export default {
   str: '',
   arc: false,
   panel: [],
-  programOpen: false,
+  programOpen: true,
   rec:false,
-  git:false,
+  git:true,
   gitlinks:[],
   keyCode: [
     'acos',

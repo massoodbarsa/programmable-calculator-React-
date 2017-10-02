@@ -104,24 +104,27 @@
 .rec-off, .rec-on {
   flex-basis: auto;
   color: #e6e6e6;
-  width: auto;
-  border-radius: 5px;
+  width: 40px;
+  border-radius: 50%;
   font-size: 18px;
   padding: 4px;
   background-color: #660000;
   box-shadow: 0 5px 5px #66ccff , 0 5px 10px #0000ff;
   outline: none;
-  margin-left: 5px; }
+  height: 30px;
+  margin-left: 3px;
+  margin-bottom: 10px; }
   .rec-off:hover, .rec-on:hover {
-    cursor: crosshair; }
+    cursor: grabbing; }
 
 .rec-on {
-  background-color: #ff1a1a;
+  background-color: #ffffff;
   box-shadow: 0 5px 5px #ff9999 , 0 5px 10px #ffff33;
-  color: #ffff33; }
+  color: red; }
 
 .GitLinks {
   padding: 6px;
   margin: 10px;
   overflow: hidden;
-  text-overflow: clip; }
+  text-overflow: clip;
+  background: #ff4da6; }

@@ -2,6 +2,8 @@ import React from 'react'
 import '../Css/Github.css'
 import store from '../store';
 import {GitLinks} from '.'
+import FaDownload from 'react-icons/lib/fa/download'
+
 
 
 export default class Git extends React.Component{
@@ -18,19 +20,20 @@ export default class Git extends React.Component{
 
   render(){
 
-     this.ConnectToApi()
 
      const {gitlinks} = store.state
      let newGitlinks  = gitlinks
 
-     const links=newGitlinks.map((item,index)=>{
+     const links=store.state.gitlinks.map((item,index)=>{
         return (
           <GitLinks
             key={index}
             item={item}
           />
         )
+
       })
+
 
 //open and close panel
 
@@ -42,7 +45,15 @@ export default class Git extends React.Component{
        }
 
       return(
+
         <div className={`${clas}`}>
+            <div className='LoadApi'>
+                <FaDownload
+                  className='LoadApiKey'
+                  onClick={this.LoadApi.bind(this)}
+                />
+            </div>
+
             <div className="links">
                    {links}
             </div>
@@ -50,16 +61,18 @@ export default class Git extends React.Component{
       )
   }
 
+  LoadApi(){
+    const {gitlinks} = store.state
+    let newGitlinks = gitlinks
 
- ConnectToApi(){
-   const {gitlinks} = store.state
-   let newGitlinks = gitlinks
+    fetch('https://api.github.com/repos/remarcmij/calculator-programs/contents/programs')
+      .then(response => response.json())
+      .then(data => data.forEach(index => {
+        newGitlinks.push(index)
+      }))
 
-   fetch('https://api.github.com/repos/remarcmij/calculator-programs/contents/programs')
-     .then(response => response.json())
-     .then(data => data.forEach(index => {
-       newGitlinks.push(index)
-     }))
-  }
-
+      store.setState({
+        gitlinks:newGitlinks
+      })
+   }
 }

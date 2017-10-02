@@ -50,7 +50,7 @@
   .panel-body span:hover {
     box-shadow: 0 5px 50px 0 #0000ff,0 5px 20px 0 #ffffff; }
 
-.result-button, .clean-button, .refine-button, .git-button {
+.result-button, .clean-button, .refine-button, .git-button, .LoadApiKey {
   box-sizing: border-box;
   flex-grow: 1;
   background-color: #ffccff;
@@ -62,12 +62,12 @@
   margin: 2px;
   transition-duration: 0.1s;
   outline: none; }
-  .result-button:hover, .clean-button:hover, .refine-button:hover, .git-button:hover {
+  .result-button:hover, .clean-button:hover, .refine-button:hover, .git-button:hover, .LoadApiKey:hover {
     cursor: grabbing;
     outline: none;
     box-shadow: 0 5px 10px 2px #ffffff,0 5px 20px 0 #0000ff;
     transition-duration: 0.7s; }
-  .result-button:active, .clean-button:active, .refine-button:active, .git-button:active {
+  .result-button:active, .clean-button:active, .refine-button:active, .git-button:active, .LoadApiKey:active {
     background-color: #0000ff;
     font-weight: bold;
     color: #ffff00;
@@ -104,33 +104,34 @@
 .rec-off, .rec-on {
   flex-basis: auto;
   color: #e6e6e6;
-  width: auto;
-  border-radius: 5px;
+  width: 40px;
+  border-radius: 50%;
   font-size: 18px;
   padding: 4px;
   background-color: #660000;
   box-shadow: 0 5px 5px #66ccff , 0 5px 10px #0000ff;
   outline: none;
-  margin-left: 5px; }
+  height: 30px;
+  margin-left: 3px;
+  margin-bottom: 10px; }
   .rec-off:hover, .rec-on:hover {
-    cursor: crosshair; }
+    cursor: grabbing; }
 
 .rec-on {
-  background-color: #ff1a1a;
+  background-color: #ffffff;
   box-shadow: 0 5px 5px #ff9999 , 0 5px 10px #ffff33;
-  color: #ffff33; }
+  color: red; }
 
 .github-open {
-  background-color: #ffff33;
+  background-color: #000066;
   border: 4px solid #000066;
-  overflow: hidden;
-  animation-direction: reverse; }
+  overflow: hidden; }
 
 @-webkit-keyframes example {
   from {
     background-color: #ffffff; }
   to {
-    background-color: #ffff33; } }
+    background-color: #000066; } }
 
 .github-close {
   display: none;
@@ -141,3 +142,9 @@
   flex-direction: column;
   padding: 20px;
   margin-left: 10%; }
+
+.LoadApi {
+  display: flex; }
+
+.LoadApiKey {
+  font-size: 3em; }
