@@ -22,7 +22,7 @@ export default class Git extends React.Component{
 
 
      const {gitlinks} = store.state
-     let newGitlinks  = gitlinks
+     const newGitlinks  = gitlinks
 
      const links=store.state.gitlinks.map((item,index)=>{
         return (
@@ -62,6 +62,9 @@ export default class Git extends React.Component{
   }
 
   LoadApi(){
+    store.setState({
+      gitlinks:[]
+    })
     const {gitlinks} = store.state
     let newGitlinks = gitlinks
 
@@ -69,10 +72,12 @@ export default class Git extends React.Component{
       .then(response => response.json())
       .then(data => data.forEach(index => {
         newGitlinks.push(index)
+
+        store.setState({
+          gitlinks:newGitlinks
+        })
+
       }))
 
-      store.setState({
-        gitlinks:newGitlinks
-      })
    }
 }

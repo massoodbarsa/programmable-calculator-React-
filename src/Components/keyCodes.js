@@ -37,3 +37,8 @@ export const SUB = 'sub'
 export const SWAP = 'swap'
 export const TAN = 'tan'
 export const SQR = 'sqr'
+
+export const COSH = 'cosh'
+export const ABS = 'abs'
+export const FACT = '!'
+// export const SQR = 'sqr'

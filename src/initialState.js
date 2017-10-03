@@ -46,6 +46,9 @@ export default {
     'sto',
     'sub',
     'swap',
-    'tan'
+    'tan',
+    'cosh',
+    'abs',
+    '!'
   ]
 }

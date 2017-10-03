@@ -1,7 +1,7 @@
 import store from '../store';
 import degrees from 'radians-degrees';
 import radians from 'degrees-radians';
-
+import factorial from 'math-factorial';
 import * as keyCode from '../Components/keyCodes'
 
 export function Countable(Digit) {
@@ -186,6 +186,10 @@ export function Operational(operator) {
           newstack[newstack.length - 1] = Math.cos(radians(Number(newstack[newstack.length - 1])))
           break;
 
+        case keyCode.COSH:
+          newstack[newstack.length - 1] = Math.cosh(radians(Number(newstack[newstack.length - 1])))
+          break;
+
         case keyCode.SIN:
           newstack[newstack.length - 1] = Math.sin(radians(Number(newstack[newstack.length - 1])))
           break;
@@ -197,6 +201,15 @@ export function Operational(operator) {
         case keyCode.TAN:
           newstack[newstack.length - 1] = Math.tan(radians(Number(newstack[newstack.length - 1])))
           break;
+
+        case keyCode.ABS:
+          newstack[newstack.length - 1] = Math.abs(newstack[newstack.length - 1])
+          break
+
+        case keyCode.FACT:
+          newstack[newstack.length - 1] = factorial(newstack[newstack.length - 1])
+          break
+
 
         case keyCode.RECIPROCAL:
           newstack[newstack.length - 1] = 1 / newstack[newstack.length - 1]

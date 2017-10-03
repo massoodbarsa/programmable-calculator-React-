@@ -10,5 +10,7 @@ export default {
   'e^x': C.EXP,
   'y^x': C.POW,
   'x^2': C.SQR,
-  'Vx': C.SQRT
+  'Vx': C.SQRT,
+  '<>':C.SWAP,
+
 }
