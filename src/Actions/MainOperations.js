@@ -1,7 +1,7 @@
 import store from '../store';
 import degrees from 'radians-degrees';
 import radians from 'degrees-radians';
-// import factorial from 'math-factorial';
+import mathjs from 'mathjs';
 import * as keyCode from '../Components/keyCodes'
 
 export function Countable(Digit) {
@@ -206,9 +206,9 @@ export function Operational(operator) {
           newstack[newstack.length - 1] = Math.abs(newstack[newstack.length - 1])
           break
 
-        // case keyCode.FACT:
-        //   newstack[newstack.length - 1] = factorial(newstack[newstack.length - 1])
-        //   break
+        case keyCode.FACT:
+          newstack[newstack.length - 1] = mathjs.factorial(newstack[newstack.length - 1])
+          break
 
 
         case keyCode.RECIPROCAL:
