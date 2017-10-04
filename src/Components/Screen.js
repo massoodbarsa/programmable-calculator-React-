@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import store from '../store';
 import {Rows} from '.'
 import '../Css/Screen.css';
+import FaFolderOpenO from 'react-icons/lib/fa/folder-open'
+
 
 
 class Screen extends Component {
@@ -28,23 +30,21 @@ class Screen extends Component {
       <div className="Screen">
            <div className='screen-key'>
                <h3 className={`${clas}`} >Arc</h3>
-               <input
-                  className='open-panel'
-                  type='button'
-                  value='Open Panel'
-                  onClick={this.handleProgramPanel.bind(this)}
+
+               <FaFolderOpenO className='open-panel'
+                 onClick={this.handleProgramPanel.bind(this)}
+                 value='Open Panel'
+
                />
+
            </div>
           <Rows
-          //  stack={value}
             row={stack[stack.length-3]}
           />
           <Rows
-            //stack={stack}
             row={stack[stack.length-2]}
           />
           <Rows
-          //  stack={stack}
             row={stack[stack.length-1]}
           />
           <Rows
@@ -56,7 +56,8 @@ class Screen extends Component {
   handleProgramPanel(){
     if (store.state.programOpen) {
       store.setState({
-        programOpen:false
+        programOpen:false,
+        git:false
       })
     } else {
       store.setState({

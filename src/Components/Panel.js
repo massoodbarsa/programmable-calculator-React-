@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import store from '../store';
 import '../Css/Panel.css';
 import * as PanelHandler from '../Actions/PanelHandler'
+import GoMarkGithub from 'react-icons/lib/go/mark-github'
+import FaEraser from 'react-icons/lib/fa/trash'
+import FaTrash from 'react-icons/lib/fa/recycle'
+import MdFiberManualRecord from 'react-icons/lib/md/fiber-manual-record'
+
+
 
 
 class Panel extends Component {
@@ -15,6 +21,7 @@ class Panel extends Component {
   componentWillUnmount() {
     this.subscription.remove();
   }
+
   render() {
 
   const {programOpen}=store.state
@@ -44,40 +51,30 @@ class Panel extends Component {
 
           <div className='panel-body'>
 
-              <div className='checkbox'>
-                  <label>
-                     <input
-                       type='checkbox'
-                       unchecked
-                     />
-                     <span>Slow</span>
-                  </label>
+              <div className='small-keys'>
 
-                  <label>
-                     <input
-                       className={`${recClassName}`}
-                       type='button'
-                       value='Rec'
-                       onClick={this.handleRec.bind(this)}
-                     />
-                  </label>
+
+                  <GoMarkGithub  className='git-button'
+
+                     onClick={this.handleGitButton.bind(this)}
+                  />
+
+                  <MdFiberManualRecord  className={`${recClassName}`}
+
+                     onClick={this.handleRec.bind(this)}
+                  />
+
+
               </div>
 
-
-            <input
-               className='refine-button'
-               type='button'
-               value='Refine'
+            <FaTrash  className='refine-button'
                onClick={()=>PanelHandler.refinePanel()}
             />
 
-            <input
-               className='clean-button'
-               type='button'
-               value='Clear'
-              //  onClick={()=>PanelHandler.panelHandle('clean')}
-              onClick={this.handleClean.bind(this)}
+            <FaEraser  className='clean-button'
+            onClick={this.handleClear.bind(this)}
             />
+
 
             <input
                className='result-button'
@@ -101,13 +98,30 @@ class Panel extends Component {
       })
     }
   }
-
-  handleClean() {
+//clear the panel
+  handleClear() {
     document.getElementById("myTextarea").value = '';
     store.setState({
       panel:[]
     })
   }
+
+
+//open git panel
+  handleGitButton(){
+
+      if (store.state.git) {
+        store.setState({
+          git:false
+        })
+      } else {
+        store.setState({
+          git:true
+        })
+      }
+
+   }
+
 }
 
 export default Panel;

@@ -5,6 +5,8 @@ export {default as CountableButtons} from './CountableButton'
 export {default as OperationalButtons} from './OperationalButtons'
 export {default as Panel} from './Panel'
 export {default as keyCode} from './keyCodes'
-
-
+export {default as Keyboard} from './keyboard'
+export {default as Aliases} from './aliases'
+export {default as Git} from './Git'
+export {default as GitLinks} from './GitLinks'
 export {default as Rows} from './Rows'

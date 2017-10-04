@@ -6,6 +6,8 @@ export default {
   panel: [],
   programOpen: false,
   rec:false,
+  git:false,
+  gitlinks:[],
   keyCode: [
     'acos',
     'add',
@@ -44,6 +46,9 @@ export default {
     'sto',
     'sub',
     'swap',
-    'tan'
+    'tan',
+    'cosh',
+    'abs',
+    '!'
   ]
 }

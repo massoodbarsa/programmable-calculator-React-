@@ -1,0 +1,13 @@
+@import "Panel.scss";
+
+
+.GitLinks{
+  @extend .result-button;
+
+  padding: 6px;
+  margin: 10px;
+  overflow: hidden;
+  text-overflow:clip;
+  background: #ff4da6
+
+}

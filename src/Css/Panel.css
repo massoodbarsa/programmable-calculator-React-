@@ -26,7 +26,7 @@
 
 .panel-screen {
   display: flex;
-  flex-grow: 5;
+  flex-grow: 10;
   margin: 5px; }
   .panel-screen textarea {
     flex-grow: 2;
@@ -36,7 +36,8 @@
     font-size: 23px;
     font-weight: bold;
     font-style: oblique;
-    color: #000066; }
+    color: #000066;
+    resize: none; }
 
 .panel-body {
   display: flex;
@@ -49,13 +50,7 @@
   .panel-body span:hover {
     box-shadow: 0 5px 50px 0 #0000ff,0 5px 20px 0 #ffffff; }
 
-.checkbox {
-  display: flex;
-  flex-direction: column;
-  margin-right: 10px;
-  margin-top: 10px; }
-
-.result-button, .clean-button, .refine-button {
+.result-button, .clean-button, .refine-button, .git-button {
   box-sizing: border-box;
   flex-grow: 1;
   background-color: #ffccff;
@@ -65,13 +60,14 @@
   padding: 2px;
   border: 2px solid #ffffff;
   margin: 2px;
-  transition-duration: 0.1s; }
-  .result-button:hover, .clean-button:hover, .refine-button:hover {
+  transition-duration: 0.1s;
+  outline: none; }
+  .result-button:hover, .clean-button:hover, .refine-button:hover, .git-button:hover {
     cursor: grabbing;
     outline: none;
     box-shadow: 0 5px 10px 2px #ffffff,0 5px 20px 0 #0000ff;
     transition-duration: 0.7s; }
-  .result-button:active, .clean-button:active, .refine-button:active {
+  .result-button:active, .clean-button:active, .refine-button:active, .git-button:active {
     background-color: #0000ff;
     font-weight: bold;
     color: #ffff00;
@@ -80,24 +76,48 @@
     border: 2px solid #0000ff;
     box-shadow: 0 5px 50px 0 #0000ff,0 5px 20px 0 #ffffff; }
 
-.clean-button:active {
-  color: #47d147;
-  background-color: #47d147; }
+.clean-button {
+  height: 136px;
+  margin-bottom: -35px;
+  width: 50px; }
+  .clean-button:active {
+    color: red; }
+
+.refine-button {
+  height: 136px;
+  margin-bottom: -35px;
+  width: 50px; }
+  .refine-button:active {
+    color: #47d147; }
+
+.small-keys {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  margin-top: 10px; }
+
+.git-button {
+  padding: 4px;
+  width: 50px;
+  margin-bottom: 20px; }
 
 .rec-off, .rec-on {
+  flex-basis: auto;
   color: #e6e6e6;
-  width: auto;
-  border-radius: 5px;
+  width: 40px;
+  border-radius: 50%;
   font-size: 18px;
   padding: 4px;
   background-color: #660000;
   box-shadow: 0 5px 5px #66ccff , 0 5px 10px #0000ff;
   outline: none;
-  margin-left: 5px; }
+  height: 30px;
+  margin-left: 3px;
+  margin-bottom: 10px; }
   .rec-off:hover, .rec-on:hover {
-    cursor: crosshair; }
+    cursor: grabbing; }
 
 .rec-on {
-  background-color: #ff1a1a;
+  background-color: #ffffff;
   box-shadow: 0 5px 5px #ff9999 , 0 5px 10px #ffff33;
-  color: #ffff33; }
+  color: red; }
