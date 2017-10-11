@@ -34,7 +34,7 @@ var db = mongoose.connection
 // })
 
 
-
+//read
 app.get('/api/program',(req,res)=>{
   Programs.getProgram((err,program)=>{
     if (err) {
@@ -45,11 +45,8 @@ app.get('/api/program',(req,res)=>{
 
 })
 
+//creat
 app.post('/api/program',(req,res)=>{
-
-
-  console.log('req.body is :'+req.body);
-
   Programs.addProgram(req.body,(err,program)=>{
     if (err) {
       throw err
