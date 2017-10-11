@@ -1,6 +1,10 @@
 import React from 'react'
 import '../Css/GitLinks.css'
 import store from '../store';
+import FaDownload from 'react-icons/lib/fa/download'
+import axios from 'axios'
+
+
 
 
 export default class GitLinks extends React.Component{
@@ -10,6 +14,7 @@ export default class GitLinks extends React.Component{
 
     return(
       <div>
+
          <button className ='GitLinks'
              onClick = {this.handelGitApiLinks.bind(this)}>
              {this.props.item.name}
@@ -33,6 +38,9 @@ export default class GitLinks extends React.Component{
     }
     xmlhttp.open("GET", this.props.item.download_url, false);
     xmlhttp.send();
+    document.getElementById("programNameInput").value = this.props.item.name
+
   }
+
 
 }

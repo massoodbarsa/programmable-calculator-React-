@@ -1,8 +1,10 @@
 import React from 'react'
 import '../Css/Github.css'
 import store from '../store';
-import {GitLinks} from '.'
+import {GitLinks,DbLinks} from '.'
 import FaDownload from 'react-icons/lib/fa/download'
+import GoMarkGithub from 'react-icons/lib/go/mark-github'
+import axios from 'axios'
 
 
 
@@ -21,10 +23,11 @@ export default class Git extends React.Component{
   render(){
 
 
-     const {gitlinks} = store.state
+     const {gitlinks,dblinks} = store.state
      const newGitlinks  = gitlinks
+     const newDblinks  = dblinks
 
-     const links=store.state.gitlinks.map((item,index)=>{
+     const gitLinks=store.state.gitlinks.map((item,index)=>{
         return (
           <GitLinks
             key={index}
@@ -33,37 +36,61 @@ export default class Git extends React.Component{
         )
 
       })
+      const dbLinks=store.state.dblinks.map((item,index)=>{
+         return (
+           <DbLinks
+             key={index}
+             item={item}
+           />
+         )
+
+       })
 
 
 //open and close panel
 
-      const {git}=store.state
+      const {git,databaseBackImage}=store.state
 
-      let clas='github-close'
+      let clas='db-close'
        if(git===true){
-          clas='github-open'
+          clas='db-open'
        }
+      let clas2='gitBackImage'
+      if (databaseBackImage===true) {
+        clas2='databaseBackImage'
+      }
+
+
 
       return(
 
-        <div className={`${clas}`}>
+        <div className={`${clas} ${clas2}`} >
             <div className='LoadApi'>
                 <FaDownload
                   className='LoadApiKey'
-                  onClick={this.LoadApi.bind(this)}
+                  onClick={this.loadDatabase.bind(this)}
+                />
+
+                <GoMarkGithub
+                 className='LoadGitButton'
+                 onClick={this.LoadGitApi.bind(this)}
                 />
             </div>
 
-            <div className="links">
-                   {links}
+            <div className="gitlinks">
+                   {gitLinks}
+            </div>
+            <div className="dblinks">
+                   {dbLinks}
             </div>
         </div>
       )
   }
 
-  LoadApi(){
+  LoadGitApi(){
     store.setState({
-      gitlinks:[]
+      gitlinks:[],
+      dblinks:[]
     })
     const {gitlinks} = store.state
     let newGitlinks = gitlinks
@@ -71,6 +98,7 @@ export default class Git extends React.Component{
     fetch('https://api.github.com/repos/remarcmij/calculator-programs/contents/programs')
       .then(response => response.json())
       .then(data => data.forEach(index => {
+
         newGitlinks.push(index)
 
         store.setState({
@@ -79,5 +107,62 @@ export default class Git extends React.Component{
 
       }))
 
+      store.setState({
+        databaseBackImage:false
+      })
+
    }
+
+
+
+   loadDatabase(){
+     const {dblinks} = store.state
+     const newDblinks  = dblinks
+
+     store.setState({
+       gitlinks:[],
+       dblinks:[]
+     })
+
+    axios.get('http://localhost:9000/api/program')
+    .then(function (response) {
+      response.data.forEach(i=>{
+
+        newDblinks.push(i)
+
+        store.setState({
+          dblinks:newDblinks
+        })
+      })
+    })
+    .catch(function (error) {
+      console.log(error);
+
+    })
+
+
+   store.setState({
+     databaseBackImage:true
+   })
+
+//   axios.put('http://localhost:9000/api/program/59db67217a63805a6cc49ecc', {
+//       program:'menyuch'
+// })
+// .then(function (response) {
+//  console.log(response);
+// })
+// .catch(function (error) {
+//  console.log(error);
+// });
+
+//   axios.delete('http://localhost:9000/api/program/59db67217a63805a6cc49ecc')
+// .then(function (response) {
+// })
+// .catch(function (error) {
+//  console.log(error);
+// });
+
+
+
+    }
 }

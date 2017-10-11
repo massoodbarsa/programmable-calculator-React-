@@ -1,16 +1,29 @@
 @import "Panel.scss";
 
-.github-open {
+.db-open {
   @extend .panel-open;
   background-color: #1d2162;
-  background-image: url("../Images/git.jpg");
-  background-position:center;
-  background-size:cover;
-  background-repeat: no-repeat;
+
   border: 4px solid #000066;
   overflow: hidden;
 }
 
+.databaseBackImage{
+  @extend  .db-open ;
+  background-image: url("../Images/database.jpg");
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: 300px 600px;
+
+}
+.gitBackImage{
+  @extend  .db-open ;
+  background-image: url("../Images/git.jpg");
+  background-position:center;
+  background-size:cover;
+  background-repeat: no-repeat;
+
+}
 @-webkit-keyframes example {
   from {
     background-color: #ffffff;
@@ -21,16 +34,19 @@
   }
 }
 
-.github-close {
+.db-close {
   display: none;
-  background-color: red;
 }
 
-.links {
+.gitlinks {
   display: flex;
   flex-direction: column;
   padding: 20px;
   margin-left: 10%;
+}
+
+.dblinks{
+  @extend .gitlinks;
 }
 .LoadApi{
   display: flex;
@@ -38,5 +54,7 @@
 .LoadApiKey{
   @extend .result-button;
   font-size: 3em;
-
 }
+.LoadGitButton{
+  @extend .result-button;
+  font-size: 3em;}

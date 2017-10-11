@@ -9,4 +9,4 @@ import {browserHistory}  from 'react-router';
 
 
 
-ReactDOM.render(<Routes history={browserHistory} />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));

@@ -1,3 +1,14 @@
+.programIdDiv {
+  display: flex;
+  background-color: #00b3b3;
+  justify-content: center;
+  border-radius: 8px; }
+  .programIdDiv p {
+    font-size: 16px;
+    font-style: oblique;
+    font-weight: bold;
+    margin-top: 5px; }
+
 .panel-open {
   box-sizing: border-box;
   display: flex;
@@ -24,9 +35,33 @@
   to {
     background-color: #000066; } }
 
+.programName-close {
+  display: none; }
+
+.programName-open {
+  display: block;
+  margin: 5px; }
+  .programName-open label {
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row; }
+  .programName-open span {
+    margin-top: 10px;
+    color: #ffffff;
+    font-size: 1.3em;
+    font-style: italic;
+    font-weight: bold; }
+  .programName-open input {
+    margin: 8px;
+    border-radius: 7px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 4px;
+    color: #000066; }
+
 .panel-screen {
   display: flex;
-  flex-grow: 10;
+  flex-grow: 20;
   margin: 5px; }
   .panel-screen textarea {
     flex-grow: 2;
@@ -50,7 +85,7 @@
   .panel-body span:hover {
     box-shadow: 0 5px 50px 0 #0000ff,0 5px 20px 0 #ffffff; }
 
-.result-button, .clean-button, .refine-button, .git-button, .open-panel {
+.result-button, .clean-button, .refine-button, .db-button, .saveProgram, .open-panel {
   box-sizing: border-box;
   flex-grow: 1;
   background-color: #ffccff;
@@ -62,12 +97,12 @@
   margin: 2px;
   transition-duration: 0.1s;
   outline: none; }
-  .result-button:hover, .clean-button:hover, .refine-button:hover, .git-button:hover, .open-panel:hover {
+  .result-button:hover, .clean-button:hover, .refine-button:hover, .db-button:hover, .saveProgram:hover, .open-panel:hover {
     cursor: grabbing;
     outline: none;
     box-shadow: 0 5px 10px 2px #ffffff,0 5px 20px 0 #0000ff;
     transition-duration: 0.7s; }
-  .result-button:active, .clean-button:active, .refine-button:active, .git-button:active, .open-panel:active {
+  .result-button:active, .clean-button:active, .refine-button:active, .db-button:active, .saveProgram:active, .open-panel:active {
     background-color: #0000ff;
     font-weight: bold;
     color: #ffff00;
@@ -77,14 +112,14 @@
     box-shadow: 0 5px 50px 0 #0000ff,0 5px 20px 0 #ffffff; }
 
 .clean-button {
-  height: 136px;
+  height: 119px;
   margin-bottom: -35px;
   width: 50px; }
   .clean-button:active {
     color: red; }
 
 .refine-button {
-  height: 136px;
+  height: 119px;
   margin-bottom: -35px;
   width: 50px; }
   .refine-button:active {
@@ -96,9 +131,10 @@
   margin-right: 10px;
   margin-top: 10px; }
 
-.git-button {
-  padding: 4px;
+.db-button {
+  padding: 3px;
   width: 50px;
+  height: 30px;
   margin-bottom: 20px; }
 
 .rec-off, .rec-on {
@@ -121,6 +157,13 @@
   background-color: #ffffff;
   box-shadow: 0 5px 5px #ff9999 , 0 5px 10px #ffff33;
   color: red; }
+
+.saveProgramDiv {
+  display: flex; }
+
+.saveProgram {
+  font-size: 2.3em;
+  margin: 4px; }
 
 .Screen {
   border: 1px solid #e6e6ff;

@@ -1,3 +1,16 @@
+.programIdDiv {
+  display: flex;
+  background-color: #00b3b3;
+  justify-content: center;
+  border-radius:8px;
+
+  p {
+    font-size: 16px;
+    font-style: oblique;
+    font-weight: bold;
+    margin-top: 5px
+  }
+}
 .panel-open {
   box-sizing: border-box;
   display: flex;
@@ -29,9 +42,44 @@
   }
 }
 
+.programName-close {
+  display: none;
+}
+
+.programName-open {
+  display: block;
+  // flex-grow: 1;
+  margin: 5px;
+
+  label {
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+  };
+
+  span {
+    margin-top: 10px;
+    color: #ffffff;
+    font-size: 1.3em;
+    font-style: italic;
+    font-weight: bold;
+  };
+
+  input {
+    margin: 8px;
+    border-radius: 7px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 4px;
+    color: #000066;
+  };
+}
+
+
+
 .panel-screen {
   display: flex;
-  flex-grow: 10;
+  flex-grow: 20;
   margin: 5px;
 
   textarea {
@@ -96,22 +144,23 @@
 
 .clean-button {
   @extend .result-button;
-  height: 136px;
-  margin-bottom:-35px;
+  height: 119px;
+  margin-bottom: -35px;
   width: 50px;
-  &:active{
-      color: red;
+
+  &:active {
+    color: red;
   }
 }
 
-
 .refine-button {
   @extend .result-button;
-  height: 136px;
-  margin-bottom:-35px;
+  height: 119px;
+  margin-bottom: -35px;
   width: 50px;
-  &:active{
-      color: #47d147;
+
+  &:active {
+    color: #47d147;
   }
 }
 
@@ -122,11 +171,12 @@
   margin-top: 10px;
 }
 
-.git-button {
+.db-button {
   @extend .result-button;
-  padding: 4px;
+  padding: 3px;
   width: 50px;
-  margin-bottom: 20px
+  height: 30px;
+  margin-bottom: 20px;
 }
 
 .rec-off {
@@ -144,7 +194,7 @@
   margin-bottom: 10px;
 
   &:hover {
-    cursor:grabbing;
+    cursor: grabbing;
   }
 }
 
@@ -153,4 +203,14 @@
   background-color: #ffffff;
   box-shadow: 0 5px 5px #ff9999 , 0 5px 10px #ffff33;
   color: red;
+}
+
+.saveProgramDiv {
+  display: flex;
+}
+
+.saveProgram {
+  @extend .result-button;
+  font-size: 2.3em;
+  margin: 4px;
 }

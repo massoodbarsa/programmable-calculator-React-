@@ -2,10 +2,14 @@ import React, { Component } from 'react';
 import store from '../store';
 import '../Css/Panel.css';
 import * as PanelHandler from '../Actions/PanelHandler'
-import GoMarkGithub from 'react-icons/lib/go/mark-github'
+import FaDatabase from 'react-icons/lib/fa/database'
 import FaEraser from 'react-icons/lib/fa/trash'
 import FaTrash from 'react-icons/lib/fa/recycle'
 import MdFiberManualRecord from 'react-icons/lib/md/fiber-manual-record'
+import MdSave from 'react-icons/lib/md/save'
+import axios from 'axios'
+
+
 
 
 
@@ -36,10 +40,46 @@ class Panel extends Component {
       recClassName='rec-on'
    }
 
+   let programNameClass='programName-close'
+   if(store.state.programName===true){
+      programNameClass='programName-open'
+   }
+
     return (
       <div className={`${clas}`}>
 
+
+         <div className='saveProgramDiv'>
+             <MdSave
+              className='saveProgram'
+              onClick={this.SaveToDB.bind(this)}
+             />
+
+
+         </div>
+
+         <div className={`${programNameClass}`}>
+               <div className='programIdDiv' >
+                id: <p id="programId"> </p>
+               </div>
+
+              <div>
+               <label >
+                  <span> Name </span>
+
+                  <input
+                     id='programNameInput'
+                     type='label'
+                  />
+
+              </label>
+             </div>
+
+         </div>
+
+
           <div className='panel-screen'>
+
             <textarea
                id='myTextarea'
                placeholder='Enter your program here'
@@ -54,7 +94,7 @@ class Panel extends Component {
               <div className='small-keys'>
 
 
-                  <GoMarkGithub  className='git-button'
+                  <FaDatabase  className='db-button'
 
                      onClick={this.handleGitButton.bind(this)}
                   />
@@ -100,6 +140,7 @@ class Panel extends Component {
   }
 //clear the panel
   handleClear() {
+
     document.getElementById("myTextarea").value = '';
     store.setState({
       panel:[]
@@ -121,6 +162,38 @@ class Panel extends Component {
       }
 
    }
+
+
+  //save program in the panel to database as string
+  SaveToDB() {
+    store.setState({
+      programName:true
+    })
+
+    var id = document.getElementById("programId").innerHTML
+    console.log(id);
+
+    var value = document.getElementById("myTextarea").value.toString()
+    //console.log('value is '+value);
+     var programName =document.getElementById("programNameInput").value
+     console.log(programName);
+    store.state.dblinks.map(i=>{
+
+    })
+
+
+    axios.post('http://localhost:9000/api/program', {
+        program: value,
+        name: programName
+      })
+      .then(function(response) {
+        console.log(response);
+
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  }
 
 }
 
