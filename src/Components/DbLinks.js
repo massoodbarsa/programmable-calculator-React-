@@ -15,7 +15,7 @@ export default class DbLinks extends React.Component{
     return(
       <div>
 
-         <button className ='DbLinks'
+         <button className ='DbLinks' id='dbLinkButton'
              onClick = {this.handelDbLinks.bind(this)}>
              {this.props.item.name}
          </button>

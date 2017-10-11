@@ -3,11 +3,11 @@ var mongoose=require('mongoose')
 
 var programSchema = mongoose.Schema({
   program:{
-    type:String,
+    type:String
     // required:true
   },
   name:{
-    type:String,
+    type:String
     // required:true
   },
    create_date:{
@@ -35,7 +35,8 @@ module.exports.addProgram= function(program,callback){
 module.exports.updateProgram= function(id,programs,callback){
   var query = {_id:id}
   var update={
-    program:programs.program
+    program:programs.program,
+    name:programs.name
   }
   Programs.findOneAndUpdate(query,update,callback)
 }

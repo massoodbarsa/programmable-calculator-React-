@@ -85,7 +85,7 @@
   .panel-body span:hover {
     box-shadow: 0 5px 50px 0 #0000ff,0 5px 20px 0 #ffffff; }
 
-.result-button, .clean-button, .refine-button, .db-button, .saveProgram {
+.result-button, .clean-button, .refine-button, .db-button, .saveProgram, .OPenProgramName {
   box-sizing: border-box;
   flex-grow: 1;
   background-color: #ffccff;
@@ -97,12 +97,12 @@
   margin: 2px;
   transition-duration: 0.1s;
   outline: none; }
-  .result-button:hover, .clean-button:hover, .refine-button:hover, .db-button:hover, .saveProgram:hover {
+  .result-button:hover, .clean-button:hover, .refine-button:hover, .db-button:hover, .saveProgram:hover, .OPenProgramName:hover {
     cursor: grabbing;
     outline: none;
     box-shadow: 0 5px 10px 2px #ffffff,0 5px 20px 0 #0000ff;
     transition-duration: 0.7s; }
-  .result-button:active, .clean-button:active, .refine-button:active, .db-button:active, .saveProgram:active {
+  .result-button:active, .clean-button:active, .refine-button:active, .db-button:active, .saveProgram:active, .OPenProgramName:active {
     background-color: #0000ff;
     font-weight: bold;
     color: #ffff00;
@@ -161,6 +161,10 @@
 .saveProgramDiv {
   display: flex; }
 
-.saveProgram {
+.saveProgram, .OPenProgramName {
+  flex-grow: 6;
   font-size: 2.3em;
   margin: 4px; }
+
+.OPenProgramName {
+  flex-grow: 1; }

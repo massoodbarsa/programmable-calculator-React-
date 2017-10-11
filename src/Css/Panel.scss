@@ -211,6 +211,11 @@
 
 .saveProgram {
   @extend .result-button;
+  flex-grow: 6;
   font-size: 2.3em;
   margin: 4px;
+}
+.OPenProgramName{
+  @extend .saveProgram;
+  flex-grow: 1;
 }

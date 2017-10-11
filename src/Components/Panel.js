@@ -7,6 +7,8 @@ import FaEraser from 'react-icons/lib/fa/trash'
 import FaTrash from 'react-icons/lib/fa/recycle'
 import MdFiberManualRecord from 'react-icons/lib/md/fiber-manual-record'
 import MdSave from 'react-icons/lib/md/save'
+import TiArrowUnsorted from 'react-icons/lib/ti/arrow-unsorted'
+
 import axios from 'axios'
 
 
@@ -25,6 +27,7 @@ class Panel extends Component {
   componentWillUnmount() {
     this.subscription.remove();
   }
+
 
   render() {
 
@@ -50,17 +53,24 @@ class Panel extends Component {
 
 
          <div className='saveProgramDiv'>
+
              <MdSave
               className='saveProgram'
               onClick={this.SaveToDB.bind(this)}
              />
 
+             <TiArrowUnsorted
+             className='OPenProgramName'
+             onClick={this.OPenProgramName.bind(this)}
+
+             />
 
          </div>
 
          <div className={`${programNameClass}`}>
                <div className='programIdDiv' >
-                id: <p id="programId"> </p>
+                <p>Id :</p>
+                 <p id="programId"> </p>
                </div>
 
               <div>
@@ -164,35 +174,65 @@ class Panel extends Component {
    }
 
 
+  OPenProgramName(){
+   if (store.state.programName) {
+     store.setState({
+       programName: false
+     })
+   }else{
+     store.setState({
+       programName: true
+     })
+   }
+
+
+  }
+
   //save program in the panel to database as string
   SaveToDB() {
-    store.setState({
-      programName:true
-    })
 
     var id = document.getElementById("programId").innerHTML
-    console.log(id);
-
     var value = document.getElementById("myTextarea").value.toString()
-    //console.log('value is '+value);
-     var programName =document.getElementById("programNameInput").value
-     console.log(programName);
-    store.state.dblinks.map(i=>{
+    var programName = document.getElementById("programNameInput").value
 
+    var gitNames=store.state.dbLinkBank.filter(i=>{
+         return (i===programName)
     })
 
+    if (id === '') {
 
-    axios.post('http://localhost:9000/api/program', {
-        program: value,
-        name: programName
-      })
-      .then(function(response) {
-        console.log(response);
+      if(gitNames.length>=1){
+        return
+      }else{
+        axios.post('http://localhost:9000/api/program/', {
+            program: value,
+            name: programName
+          })
+          .then(function(response) {
+            console.log(response);
 
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
+          })
+          .catch(function(error) {
+            console.log(error);
+          });
+      }
+
+    }
+
+    else {
+      console.log('http://localhost:9000/api/program/' + id);
+      console.log('name:'+programName);
+      axios.put('http://localhost:9000/api/program/' + id, {
+          program: value,
+          name: programName
+        })
+        .then(function(response) {
+          console.log(response);
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    }
   }
 
 }

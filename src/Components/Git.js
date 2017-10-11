@@ -87,7 +87,11 @@ export default class Git extends React.Component{
       )
   }
 
+
+
   LoadGitApi(){
+    document.getElementById("programId").innerHTML = ''
+
     store.setState({
       gitlinks:[],
       dblinks:[]
@@ -116,13 +120,16 @@ export default class Git extends React.Component{
 
 
    loadDatabase(){
-     const {dblinks} = store.state
-     const newDblinks  = dblinks
+
 
      store.setState({
        gitlinks:[],
        dblinks:[]
      })
+
+     const {dblinks} = store.state
+     const newDblinks  = dblinks
+
 
     axios.get('http://localhost:9000/api/program')
     .then(function (response) {

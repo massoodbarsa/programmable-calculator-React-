@@ -8,9 +8,10 @@ export default {
   rec:false,
   git:true,
   databaseBackImage:true,
-  programName:true,
+  programName:false,
   gitlinks:[],
   dblinks:[],
+  dbLinkBank:[],
   keyCode: [
     'acos',
     'add',
