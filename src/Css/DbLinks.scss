@@ -1,6 +1,35 @@
+// @import "Panel.scss";
 @import "GitLinks.scss";
+
+
+.dbButtons{
+  display: flex;
+}
 
 .DbLinks{
 @extend .GitLinks;
 
+}
+.deleteButton{
+  // @extend .result-button;
+  font-size: 2.5em;
+  margin-top: 10px;
+  &:hover{
+    cursor: grabbing;
+    outline: none;
+    box-shadow: 0 5px 10px 2px #ffffff,0 5px 20px 0 #0000ff;
+    transition-duration: 0.7s;
+    border-radius: 10px;
+
+    &:active {
+      // background-color: #0000ff;
+      font-weight: bold;
+      color: #ff3300;
+      outline: none;
+      transition-duration: 0.1s;
+      border-radius: 10px;
+      box-shadow: 0 5px 50px 0 #0000ff,0 5px 20px 0 #ffffff;
+    }
+
+  }
 }

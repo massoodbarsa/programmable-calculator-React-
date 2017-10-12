@@ -2,17 +2,14 @@ import React, { Component } from 'react';
 import store from '../store';
 import '../Css/Panel.css';
 import * as PanelHandler from '../Actions/PanelHandler'
-import FaDatabase from 'react-icons/lib/fa/database'
 import FaEraser from 'react-icons/lib/fa/trash'
 import FaTrash from 'react-icons/lib/fa/recycle'
 import MdFiberManualRecord from 'react-icons/lib/md/fiber-manual-record'
 import MdSave from 'react-icons/lib/md/save'
 import TiArrowUnsorted from 'react-icons/lib/ti/arrow-unsorted'
+import FaDownload from 'react-icons/lib/fa/download'
 
 import axios from 'axios'
-
-
-
 
 
 
@@ -104,7 +101,7 @@ class Panel extends Component {
               <div className='small-keys'>
 
 
-                  <FaDatabase  className='db-button'
+                  <FaDownload  className='db-button'
 
                      onClick={this.handleGitButton.bind(this)}
                   />
@@ -201,7 +198,7 @@ class Panel extends Component {
 
     if (id === '') {
 
-      if(gitNames.length>=1){
+      if(gitNames.length>=1||programName===''){
         return
       }else{
         axios.post('http://localhost:9000/api/program/', {
@@ -220,7 +217,6 @@ class Panel extends Component {
     }
 
     else {
-      console.log('http://localhost:9000/api/program/' + id);
       console.log('name:'+programName);
       axios.put('http://localhost:9000/api/program/' + id, {
           program: value,
@@ -232,6 +228,7 @@ class Panel extends Component {
         .catch(function(error) {
           console.log(error);
         });
+
     }
   }
 

@@ -2,7 +2,7 @@ import React from 'react'
 import '../Css/Github.css'
 import store from '../store';
 import {GitLinks,DbLinks} from '.'
-import FaDownload from 'react-icons/lib/fa/download'
+import FaDatabase from 'react-icons/lib/fa/database'
 import GoMarkGithub from 'react-icons/lib/go/mark-github'
 import axios from 'axios'
 
@@ -39,8 +39,10 @@ export default class Git extends React.Component{
       const dbLinks=store.state.dblinks.map((item,index)=>{
          return (
            <DbLinks
-             key={index}
+             index={index}
              item={item}
+             onDelete={this.handleDelete.bind(this)}
+
            />
          )
 
@@ -66,7 +68,7 @@ export default class Git extends React.Component{
 
         <div className={`${clas} ${clas2}`} >
             <div className='LoadApi'>
-                <FaDownload
+                <FaDatabase
                   className='LoadApiKey'
                   onClick={this.loadDatabase.bind(this)}
                 />
@@ -119,57 +121,54 @@ export default class Git extends React.Component{
 
 
 
-   loadDatabase(){
+  loadDatabase() {
 
+    store.setState({
+      gitlinks: [],
+      dblinks: []
+    })
 
-     store.setState({
-       gitlinks:[],
-       dblinks:[]
-     })
-
-     const {dblinks} = store.state
-     const newDblinks  = dblinks
-
+    const {
+      dblinks
+    } = store.state
+    const newDblinks = dblinks
 
     axios.get('http://localhost:9000/api/program')
-    .then(function (response) {
-      response.data.forEach(i=>{
+      .then(function(response) {
+        response.data.forEach(i => {
 
-        newDblinks.push(i)
+          newDblinks.push(i)
 
-        store.setState({
-          dblinks:newDblinks
+          store.setState({
+            dblinks: newDblinks
+          })
         })
       })
+      .catch(function(error) {
+        console.log(error);
+
+      })
+
+    store.setState({
+      databaseBackImage: true
     })
-    .catch(function (error) {
-      console.log(error);
 
+  }
+
+    handleDelete = (index, id) => {
+
+    const newDblinks = [...store.state.dblinks]
+
+    newDblinks.splice(index, 1)
+
+    store.setState({
+      dblinks: newDblinks
     })
 
-
-   store.setState({
-     databaseBackImage:true
-   })
-
-//   axios.put('http://localhost:9000/api/program/59db67217a63805a6cc49ecc', {
-//       program:'menyuch'
-// })
-// .then(function (response) {
-//  console.log(response);
-// })
-// .catch(function (error) {
-//  console.log(error);
-// });
-
-//   axios.delete('http://localhost:9000/api/program/59db67217a63805a6cc49ecc')
-// .then(function (response) {
-// })
-// .catch(function (error) {
-//  console.log(error);
-// });
-
-
-
-    }
+    axios.delete('http://localhost:9000/api/program/' + id)
+      .then(function(response) {})
+      .catch(function(error) {
+        console.log(error);
+      });
+  }
 }
