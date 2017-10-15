@@ -1,9 +1,9 @@
-// @import "Panel.scss";
 @import "GitLinks.scss";
 
 
 .dbButtons{
   display: flex;
+  // margin-top: -10px
 }
 
 .DbLinks{
@@ -22,7 +22,6 @@
     border-radius: 10px;
 
     &:active {
-      // background-color: #0000ff;
       font-weight: bold;
       color: #ff3300;
       outline: none;

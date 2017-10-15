@@ -80,6 +80,7 @@ class Panel extends Component {
                   />
 
               </label>
+
              </div>
 
          </div>
@@ -195,6 +196,10 @@ class Panel extends Component {
     var gitNames=store.state.dbLinkBank.filter(i=>{
          return (i===programName)
     })
+    if(gitNames.length>=1){
+      alert('already exist')
+      return
+    }
 
     if (id === '') {
 
@@ -217,6 +222,7 @@ class Panel extends Component {
     }
 
     else {
+
       console.log('name:'+programName);
       axios.put('http://localhost:9000/api/program/' + id, {
           program: value,

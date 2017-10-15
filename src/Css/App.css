@@ -1,6 +1,7 @@
 .Container {
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  margin-bottom: 10px; }
 
 .App {
   display: block;
